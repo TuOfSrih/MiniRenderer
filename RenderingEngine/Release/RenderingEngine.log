@@ -1,11 +1,11 @@
-﻿  RenderingEngine.cpp
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(46): warning C4018: '<': signed/unsigned mismatch
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(92): warning C4018: '<': signed/unsigned mismatch
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(104): warning C4018: '<': signed/unsigned mismatch
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(142): warning C4018: '<': signed/unsigned mismatch
+﻿  stdafx.cpp
+  RenderingEngine.cpp
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(90): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(100): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(132): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(144): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(182): warning C4018: '<': signed/unsigned mismatch
   Generating code
-  4 of 78 functions ( 5.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  All 78 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   RenderingEngine.vcxproj -> C:\Users\Flo\Documents\RenderingEngine\RenderingEngine\Release\RenderingEngine.exe
