@@ -4,14 +4,14 @@
     <SFA>
       <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
       <FILENAME>renderingengine.cpp</FILENAME>
-      <LINE>26</LINE>
+      <LINE>28</LINE>
       <COLUMN>5</COLUMN>
     </SFA>
     <DEFECTCODE>6244</DEFECTCODE>
     <DESCRIPTION>Local declaration of 'device' hides previous declaration at line '18' of 'c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp'.</DESCRIPTION>
     <FUNCTION>printStats</FUNCTION>
     <DECORATED>?printStats@@YAXAAPAUVkPhysicalDevice_T@@@Z</DECORATED>
-    <FUNCLINE>26</FUNCLINE>
+    <FUNCLINE>28</FUNCLINE>
     <PATH>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
@@ -25,14 +25,14 @@
     <SFA>
       <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
       <FILENAME>renderingengine.cpp</FILENAME>
-      <LINE>167</LINE>
+      <LINE>169</LINE>
       <COLUMN>12</COLUMN>
     </SFA>
     <DEFECTCODE>6244</DEFECTCODE>
     <DESCRIPTION>Local declaration of 'instance' hides previous declaration at line '16' of 'c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp'.</DESCRIPTION>
     <FUNCTION>startVulkan</FUNCTION>
     <DECORATED>?startVulkan@@YAXXZ</DECORATED>
-    <FUNCLINE>116</FUNCLINE>
+    <FUNCLINE>118</FUNCLINE>
     <PATH>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
@@ -46,14 +46,14 @@
     <SFA>
       <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
       <FILENAME>renderingengine.cpp</FILENAME>
-      <LINE>183</LINE>
+      <LINE>185</LINE>
       <COLUMN>12</COLUMN>
     </SFA>
     <DEFECTCODE>6385</DEFECTCODE>
     <DESCRIPTION>Reading invalid data from 'physDevices':  the readable size is 'numberPhysDevices*4' bytes, but '8' bytes may be read.</DESCRIPTION>
     <FUNCTION>startVulkan</FUNCTION>
     <DECORATED>?startVulkan@@YAXXZ</DECORATED>
-    <FUNCLINE>116</FUNCLINE>
+    <FUNCLINE>118</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>4</RANK>
     <CATEGORY>
@@ -63,68 +63,56 @@
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>117</LINE>
-        <COLUMN>19</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>118</LINE>
-        <COLUMN>15</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
         <LINE>119</LINE>
-        <COLUMN>15</COLUMN>
+        <COLUMN>19</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
         <LINE>120</LINE>
-        <COLUMN>26</COLUMN>
+        <COLUMN>15</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
         <LINE>121</LINE>
-        <COLUMN>28</COLUMN>
+        <COLUMN>15</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
         <LINE>122</LINE>
-        <COLUMN>21</COLUMN>
+        <COLUMN>26</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
         <LINE>123</LINE>
-        <COLUMN>23</COLUMN>
+        <COLUMN>28</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
         <LINE>124</LINE>
-        <COLUMN>20</COLUMN>
+        <COLUMN>21</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
+        <FILENAME>renderingengine.cpp</FILENAME>
+        <LINE>125</LINE>
+        <COLUMN>23</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
         <LINE>126</LINE>
-        <COLUMN>10</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>127</LINE>
-        <COLUMN>35</COLUMN>
+        <COLUMN>20</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
         <LINE>128</LINE>
-        <COLUMN>19</COLUMN>
+        <COLUMN>10</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
@@ -135,38 +123,38 @@
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>131</LINE>
-        <COLUMN>50</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>132</LINE>
-        <COLUMN>10</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>132</LINE>
+        <LINE>130</LINE>
         <COLUMN>19</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>137</LINE>
+        <LINE>131</LINE>
+        <COLUMN>35</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
+        <FILENAME>renderingengine.cpp</FILENAME>
+        <LINE>133</LINE>
+        <COLUMN>50</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
+        <FILENAME>renderingengine.cpp</FILENAME>
+        <LINE>134</LINE>
         <COLUMN>10</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>138</LINE>
-        <COLUMN>39</COLUMN>
+        <LINE>134</LINE>
+        <COLUMN>19</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
         <LINE>139</LINE>
-        <COLUMN>23</COLUMN>
+        <COLUMN>10</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
@@ -177,56 +165,56 @@
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>143</LINE>
+        <LINE>141</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
+        <FILENAME>renderingengine.cpp</FILENAME>
+        <LINE>142</LINE>
+        <COLUMN>39</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
+        <FILENAME>renderingengine.cpp</FILENAME>
+        <LINE>145</LINE>
         <COLUMN>48</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>144</LINE>
+        <LINE>146</LINE>
         <COLUMN>10</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>144</LINE>
+        <LINE>146</LINE>
         <COLUMN>19</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>150</LINE>
+        <LINE>152</LINE>
         <COLUMN>32</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>154</LINE>
+        <LINE>156</LINE>
         <COLUMN>10</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>155</LINE>
+        <LINE>157</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>157</LINE>
-        <COLUMN>22</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>158</LINE>
-        <COLUMN>20</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
         <LINE>159</LINE>
-        <COLUMN>20</COLUMN>
+        <COLUMN>22</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
@@ -238,43 +226,49 @@
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
         <LINE>161</LINE>
-        <COLUMN>31</COLUMN>
+        <COLUMN>20</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
         <LINE>162</LINE>
-        <COLUMN>32</COLUMN>
+        <COLUMN>20</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
         <LINE>163</LINE>
-        <COLUMN>34</COLUMN>
+        <COLUMN>31</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
         <LINE>164</LINE>
-        <COLUMN>36</COLUMN>
+        <COLUMN>32</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
         <LINE>165</LINE>
-        <COLUMN>38</COLUMN>
+        <COLUMN>34</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
+        <FILENAME>renderingengine.cpp</FILENAME>
+        <LINE>166</LINE>
+        <COLUMN>36</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
         <LINE>167</LINE>
-        <COLUMN>12</COLUMN>
+        <COLUMN>38</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>168</LINE>
-        <COLUMN>1</COLUMN>
+        <LINE>169</LINE>
+        <COLUMN>12</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
@@ -286,24 +280,30 @@
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
         <LINE>172</LINE>
-        <COLUMN>22</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>175</LINE>
-        <COLUMN>10</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>176</LINE>
         <COLUMN>1</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
+        <LINE>174</LINE>
+        <COLUMN>22</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
+        <FILENAME>renderingengine.cpp</FILENAME>
+        <LINE>177</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
+        <FILENAME>renderingengine.cpp</FILENAME>
         <LINE>178</LINE>
+        <COLUMN>1</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
+        <FILENAME>renderingengine.cpp</FILENAME>
+        <LINE>180</LINE>
         <COLUMN>17</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
@@ -315,7 +315,7 @@
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>180</LINE>
+        <LINE>182</LINE>
         <COLUMN>1</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -327,7 +327,7 @@
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>180</LINE>
+        <LINE>182</LINE>
         <COLUMN>1</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
@@ -339,13 +339,13 @@
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>182</LINE>
+        <LINE>184</LINE>
         <COLUMN>10</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>182</LINE>
+        <LINE>184</LINE>
         <COLUMN>19</COLUMN>
         <KEYEVENT>
           <ID>4</ID>
@@ -357,13 +357,13 @@
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>183</LINE>
+        <LINE>185</LINE>
         <COLUMN>12</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>182</LINE>
+        <LINE>184</LINE>
         <COLUMN>41</COLUMN>
         <KEYEVENT>
           <ID>5</ID>
@@ -375,7 +375,7 @@
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>182</LINE>
+        <LINE>184</LINE>
         <COLUMN>19</COLUMN>
         <KEYEVENT>
           <ID>6</ID>
@@ -387,249 +387,25 @@
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>183</LINE>
+        <LINE>185</LINE>
         <COLUMN>12</COLUMN>
         <KEYEVENT>
           <ID>7</ID>
           <KIND>declaration</KIND>
           <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>'i' is an Output from 'printStats' (declared on line 26)</MESSAGE>
+          <MESSAGE>'i' is an Output from 'printStats' (declared on line 28)</MESSAGE>
         </KEYEVENT>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
         <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>183</LINE>
+        <LINE>185</LINE>
         <COLUMN>12</COLUMN>
         <KEYEVENT>
           <ID>8</ID>
           <KIND>usage</KIND>
           <IMPORTANCE>Essential</IMPORTANCE>
           <MESSAGE>Invalid read from 'physDevices[1]', (readable range is 0 to 0)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-    </PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-      <FILENAME>renderingengine.cpp</FILENAME>
-      <LINE>145</LINE>
-      <COLUMN>62</COLUMN>
-    </SFA>
-    <DEFECTCODE>6385</DEFECTCODE>
-    <DESCRIPTION>Reading invalid data from 'extensions':  the readable size is 'extensionAmount*260' bytes, but '520' bytes may be read.</DESCRIPTION>
-    <FUNCTION>startVulkan</FUNCTION>
-    <DECORATED>?startVulkan@@YAXXZ</DECORATED>
-    <FUNCLINE>116</FUNCLINE>
-    <PROBABILITY>1</PROBABILITY>
-    <RANK>4</RANK>
-    <CATEGORY>
-      <RULECATEGORY>mspft</RULECATEGORY>
-    </CATEGORY>
-    <PATH>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>117</LINE>
-        <COLUMN>19</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>118</LINE>
-        <COLUMN>15</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>119</LINE>
-        <COLUMN>15</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>120</LINE>
-        <COLUMN>26</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>121</LINE>
-        <COLUMN>28</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>122</LINE>
-        <COLUMN>21</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>123</LINE>
-        <COLUMN>23</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>124</LINE>
-        <COLUMN>20</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>126</LINE>
-        <COLUMN>10</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>127</LINE>
-        <COLUMN>35</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>128</LINE>
-        <COLUMN>19</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>129</LINE>
-        <COLUMN>35</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>131</LINE>
-        <COLUMN>50</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>132</LINE>
-        <COLUMN>10</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>132</LINE>
-        <COLUMN>19</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>137</LINE>
-        <COLUMN>10</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>138</LINE>
-        <COLUMN>39</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>139</LINE>
-        <COLUMN>23</COLUMN>
-        <KEYEVENT>
-          <ID>1</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'extensions' is an array of 1 elements (260 bytes)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>140</LINE>
-        <COLUMN>39</COLUMN>
-        <KEYEVENT>
-          <ID>2</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>'extensions' is an In/Out argument to 'vkEnumerateInstanceExtensionProperties' (declared at c:\vulkansdk\1.1.73.0\include\vulkan\vulkan_core.h:2921)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>143</LINE>
-        <COLUMN>48</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>144</LINE>
-        <COLUMN>10</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>144</LINE>
-        <COLUMN>19</COLUMN>
-        <KEYEVENT>
-          <ID>3</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Enter this loop, (assume 'i&lt;extensionAmount')</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>145</LINE>
-        <COLUMN>62</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>144</LINE>
-        <COLUMN>39</COLUMN>
-        <KEYEVENT>
-          <ID>4</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'i' may equal 1</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>144</LINE>
-        <COLUMN>19</COLUMN>
-        <KEYEVENT>
-          <ID>5</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Continue this loop, (assume 'i&lt;extensionAmount')</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>145</LINE>
-        <COLUMN>62</COLUMN>
-        <KEYEVENT>
-          <ID>6</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>'i' is an Output from 'std::&lt;&lt;' (declared at c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.13.26128\include\ostream:766)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\flo\documents\renderingengine\renderingengine\renderingengine\</FILEPATH>
-        <FILENAME>renderingengine.cpp</FILENAME>
-        <LINE>145</LINE>
-        <COLUMN>62</COLUMN>
-        <KEYEVENT>
-          <ID>7</ID>
-          <KIND>usage</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>Invalid read from 'extensions[1]', (readable range is 0 to 0)</MESSAGE>
         </KEYEVENT>
       </SFA>
     </PATH>
