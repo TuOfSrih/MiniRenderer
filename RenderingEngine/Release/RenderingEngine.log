@@ -1,14 +1,14 @@
 ﻿  RenderingEngine.cpp
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(95): warning C4018: '<': signed/unsigned mismatch
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(105): warning C4018: '<': signed/unsigned mismatch
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(164): warning C4018: '<': signed/unsigned mismatch
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(176): warning C4018: '<': signed/unsigned mismatch
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(213): warning C4018: '<': signed/unsigned mismatch
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(288): warning C4018: '<': signed/unsigned mismatch
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(456): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(98): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(108): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(167): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(179): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(216): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(291): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(527): warning C4018: '<': signed/unsigned mismatch
   Generating code
-  4 of 254 functions ( 1.6%) were compiled, the rest were copied from previous compilation.
+  1 of 254 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   RenderingEngine.vcxproj -> C:\Users\Flo\Documents\RenderingEngine\RenderingEngine\Release\RenderingEngine.exe
