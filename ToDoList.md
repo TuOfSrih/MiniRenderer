@@ -4,3 +4,4 @@
 *Antialising
 *Pipelinevererbung nutzen
 *Point/Line Drawing
+*Pipelinecache
