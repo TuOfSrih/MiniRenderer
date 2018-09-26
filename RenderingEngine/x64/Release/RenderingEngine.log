@@ -1,0 +1,44 @@
+﻿  stdafx.cpp
+  RenderingEngine.cpp
+c:\users\user\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(98): warning C4018: '<': signed/unsigned mismatch
+c:\users\user\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(108): warning C4018: '<': signed/unsigned mismatch
+c:\users\user\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(167): warning C4018: '<': signed/unsigned mismatch
+c:\users\user\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(179): warning C4018: '<': signed/unsigned mismatch
+c:\users\user\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(197): warning C4267: '=': conversion from 'size_t' to 'uint32_t', possible loss of data
+c:\users\user\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(216): warning C4018: '<': signed/unsigned mismatch
+c:\users\user\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(245): warning C4267: '=': conversion from 'size_t' to 'uint32_t', possible loss of data
+c:\users\user\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(291): warning C4018: '<': signed/unsigned mismatch
+c:\users\user\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(527): warning C4018: '<': signed/unsigned mismatch
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkGetPhysicalDeviceProperties
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkGetPhysicalDeviceFeatures
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkGetPhysicalDeviceMemoryProperties
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkGetPhysicalDeviceQueueFamilyProperties
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkGetPhysicalDeviceSurfaceCapabilitiesKHR
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkGetPhysicalDeviceSurfaceFormatsKHR
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkGetPhysicalDeviceSurfacePresentModesKHR
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkCreateShaderModule
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkEnumerateInstanceLayerProperties
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkEnumerateInstanceExtensionProperties
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkCreateInstance
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkGetInstanceProcAddr
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkEnumeratePhysicalDevices
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkCreateDevice
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkGetDeviceQueue
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkGetPhysicalDeviceSurfaceSupportKHR
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkCreateSwapchainKHR
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkGetSwapchainImagesKHR
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkCreateImageView
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkCreatePipelineLayout
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkCreateRenderPass
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkCreateGraphicsPipelines
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkDeviceWaitIdle
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkDestroyPipeline
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkDestroyRenderPass
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkDestroyPipelineLayout
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkDestroyImageView
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkDestroyShaderModule
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkDestroySwapchainKHR
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkDestroyDevice
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkDestroySurfaceKHR
+RenderingEngine.obj : error LNK2001: unresolved external symbol vkDestroyInstance
+C:\Users\User\Documents\RenderingEngine\RenderingEngine\x64\Release\RenderingEngine.exe : fatal error LNK1120: 32 unresolved externals
