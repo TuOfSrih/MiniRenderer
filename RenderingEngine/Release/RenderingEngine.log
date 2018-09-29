@@ -12,9 +12,11 @@ c:\users\flo\documents\renderingengine\renderingengine\renderingengine\rendering
 c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(359): warning C4018: '<': signed/unsigned mismatch
 c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(478): warning C4244: '=': conversion from 'uint32_t' to 'float', possible loss of data
 c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(479): warning C4244: '=': conversion from 'uint32_t' to 'float', possible loss of data
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(680): warning C4018: '<': signed/unsigned mismatch
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(709): warning C4018: '<': signed/unsigned mismatch
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(792): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(660): warning C4244: '=': conversion from 'uint32_t' to 'float', possible loss of data
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(661): warning C4244: '=': conversion from 'uint32_t' to 'float', possible loss of data
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(708): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(737): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(820): warning C4018: '<': signed/unsigned mismatch
   Generating code
   2 of 299 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
