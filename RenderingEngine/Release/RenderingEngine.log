@@ -4,16 +4,16 @@ EXEC : warning : shader.vert:3: '#extension' : extension not supported: GL_KHR_v
   shader.frag
   Drücken Sie eine beliebige Taste . . . 
   RenderingEngine.cpp
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(140): warning C4018: '<': signed/unsigned mismatch
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(150): warning C4018: '<': signed/unsigned mismatch
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(210): warning C4018: '<': signed/unsigned mismatch
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(222): warning C4018: '<': signed/unsigned mismatch
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(230): warning C4018: '<': signed/unsigned mismatch
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(275): warning C4018: '<': signed/unsigned mismatch
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(351): warning C4018: '<': signed/unsigned mismatch
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(708): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(141): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(151): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(224): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(240): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(271): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(350): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(661): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(744): warning C4018: '<': signed/unsigned mismatch
   Generating code
-  3 of 281 functions ( 1.1%) were compiled, the rest were copied from previous compilation.
+  3 of 297 functions ( 1.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
