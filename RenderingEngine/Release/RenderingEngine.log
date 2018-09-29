@@ -3,6 +3,7 @@ EXEC : warning : shader.vert:3: '#extension' : extension not supported: GL_KHR_v
   
   shader.frag
   Drücken Sie eine beliebige Taste . . . 
+<<<<<<< HEAD
   RenderingEngine.cpp
 c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(141): warning C4018: '<': signed/unsigned mismatch
 c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(151): warning C4018: '<': signed/unsigned mismatch
@@ -16,5 +17,19 @@ c:\users\flo\documents\renderingengine\renderingengine\renderingengine\rendering
   3 of 297 functions ( 1.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
+=======
+  stdafx.cpp
+  RenderingEngine.cpp
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(140): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(150): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(210): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(222): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(230): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(275): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(351): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(708): warning C4018: '<': signed/unsigned mismatch
+  Generating code
+  All 281 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+>>>>>>> master
   Finished generating code
   RenderingEngine.vcxproj -> C:\Users\Flo\Documents\RenderingEngine\RenderingEngine\Release\RenderingEngine.exe
