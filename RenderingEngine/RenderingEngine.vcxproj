@@ -90,7 +90,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\GLFW\glfw-3.2.1.bin.WIN32\include;C:\VulkanSDK\1.1.73.0\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\GLFW\glfw-3.2.1.bin.WIN32\include;C:\glm\glm;C:\VulkanSDK\1.1.73.0\Include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -129,7 +129,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\GLFW\glfw-3.2.1.bin.WIN32\include;C:\VulkanSDK\1.1.73.0\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\GLFW\glfw-3.2.1.bin.WIN32\include;C:\glm\glm;C:\VulkanSDK\1.1.73.0\Include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
