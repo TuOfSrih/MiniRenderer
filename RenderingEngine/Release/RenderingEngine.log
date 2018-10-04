@@ -4,23 +4,23 @@ EXEC : warning : shader.vert:3: '#extension' : extension not supported: GL_KHR_v
   shader.frag
   Drücken Sie eine beliebige Taste . . . 
   RenderingEngine.cpp
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(181): warning C4018: '<': signed/unsigned mismatch
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(191): warning C4018: '<': signed/unsigned mismatch
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(273): warning C4018: '<': signed/unsigned mismatch
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(289): warning C4018: '<': signed/unsigned mismatch
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(320): warning C4018: '<': signed/unsigned mismatch
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(399): warning C4018: '<': signed/unsigned mismatch
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(521): warning C4244: '=': conversion from 'uint32_t' to 'float', possible loss of data
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(182): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(192): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(274): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(290): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(321): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(400): warning C4018: '<': signed/unsigned mismatch
 c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(522): warning C4244: '=': conversion from 'uint32_t' to 'float', possible loss of data
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(715): warning C4244: 'argument': conversion from 'VkDeviceSize' to '::size_t', possible loss of data
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(747): warning C4244: '=': conversion from 'uint32_t' to 'float', possible loss of data
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(748): warning C4244: '=': conversion from 'uint32_t' to 'float', possible loss of data
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(798): warning C4018: '<': signed/unsigned mismatch
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(827): warning C4018: '<': signed/unsigned mismatch
-c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(913): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(523): warning C4244: '=': conversion from 'uint32_t' to 'float', possible loss of data
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(798): warning C4244: 'argument': conversion from 'VkDeviceSize' to '::size_t', possible loss of data
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(838): warning C4244: '=': conversion from 'uint32_t' to 'float', possible loss of data
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(839): warning C4244: '=': conversion from 'uint32_t' to 'float', possible loss of data
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(889): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(918): warning C4018: '<': signed/unsigned mismatch
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\renderingengine.cpp(1004): warning C4018: '<': signed/unsigned mismatch
   Generating code
-  6 of 411 functions ( 1.5%) were compiled, the rest were copied from previous compilation.
+  3 of 413 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   RenderingEngine.vcxproj -> C:\Users\Flo\Documents\RenderingEngine\RenderingEngine\Release\RenderingEngine.exe
