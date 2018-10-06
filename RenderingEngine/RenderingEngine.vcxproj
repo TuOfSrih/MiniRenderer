@@ -90,7 +90,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\GLFW\glfw-3.2.1.bin.WIN32\include;C:\glm\glm;C:\VulkanSDK\1.1.73.0\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Flo\Documents\RenderingEngine\RenderingEngine\RenderingEngine\header;C:\GLFW\glfw-3.2.1.bin.WIN32\include;C:\glm\glm;C:\VulkanSDK\1.1.73.0\Include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -129,7 +129,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\GLFW\glfw-3.2.1.bin.WIN32\include;C:\glm\glm;C:\VulkanSDK\1.1.73.0\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Flo\Documents\RenderingEngine\RenderingEngine\RenderingEngine\header;C:\GLFW\glfw-3.2.1.bin.WIN32\include;C:\glm\glm;C:\VulkanSDK\1.1.73.0\Include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -165,11 +165,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ImageHolder.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ImageHolder.cpp" />
     <ClCompile Include="RenderingEngine.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -181,6 +183,9 @@
   <ItemGroup>
     <None Include="shader.frag" />
     <None Include="shader.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\debug.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
