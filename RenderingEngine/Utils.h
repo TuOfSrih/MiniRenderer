@@ -14,6 +14,19 @@ uint32_t findMemoryTypeIndex(VkPhysicalDevice physDevice, uint32_t typeFilter, V
 void createBuffer(VkDevice device, VkPhysicalDevice physDevice, VkDeviceSize deviceSize, VkBufferUsageFlags bufferUsageFlags,
 	VkBuffer &buffer, VkMemoryPropertyFlags memoryPropertyFlags, VkDeviceMemory &deviceMemory);
 
+void copyBuffer(VkDevice device, VkCommandPool commandPool, VkQueue queue, VkBuffer src, VkBuffer dest, VkDeviceSize deviceSize);
+
+VkCommandBuffer startOneTimeCommandBuffer(VkDevice device, VkCommandPool commandPool);
+
+void endOneTimeCommandBuffer(VkDevice device, VkQueue queue, VkCommandPool commandPool, VkCommandBuffer commandBuffer);
+
+void createImage(VkDevice device, VkPhysicalDevice physDevice, uint32_t width, uint32_t height, VkFormat format, VkImageTiling imageTiling,
+	VkImageUsageFlags imageUsageFlags, VkMemoryPropertyFlags memoryPropertyFlags, VkImage &image, VkDeviceMemory &imageMemory);
+
+void createImageView(VkDevice device, VkImage image, VkFormat format, VkImageAspectFlags imageAspectFlags, VkImageView &imageView);
+
+void changeImageLayout(VkDevice device, VkCommandPool commandPool, VkQueue queue, VkImage image, VkFormat format, VkImageLayout oldImageLayout, VkImageLayout newImageLayout);
+
 template<typename T>
 void createAndUploadBuffer(VkDevice device, VkPhysicalDevice physDevice, VkQueue queue, VkCommandPool commandPool,
 	std::vector<T> data, VkBufferUsageFlags bufferUsageFlags, VkBuffer &buffer, VkDeviceMemory deviceMemory) {
@@ -31,7 +44,7 @@ void createAndUploadBuffer(VkDevice device, VkPhysicalDevice physDevice, VkQueue
 	createBuffer(device, physDevice, bufferSize, bufferUsageFlags | VK_BUFFER_USAGE_TRANSFER_DST_BIT, buffer, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, deviceMemory);
 
 	//copy
-	copyBuffer(stagingBuffer, buffer, bufferSize);
+	copyBuffer(device, commandPool, queue, stagingBuffer, buffer, bufferSize);
 
 	vkDestroyBuffer(device, stagingBuffer, nullptr);
 	vkFreeMemory(device, stagingBufferMemory, nullptr);
