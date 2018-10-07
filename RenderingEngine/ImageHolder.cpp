@@ -25,21 +25,17 @@ ImageHolder::~ImageHolder(){
 	destroy();
 }
 
-//ImageHolder* ImageHolder::GetInstance() {
-//	if (!instance) instance = new ImageHolder();
-//	return instance;
-//}
+
 
 void ImageHolder::loadImage(const char* path) {
 
-	//this.m_loaded = false;
 
-	if (this->m_loaded) throw new std::exception("Image already loaded!");
+	if (m_loaded) throw new std::exception("Image already loaded!");
 	
-	stbi_load(path, &m_width, &m_height, &m_channels, STBI_rgb_alpha);
-	this->m_loaded = true;
+	m_ppixels = stbi_load(path, &m_width, &m_height, &m_channels, STBI_rgb_alpha);
 	
 	if (!m_ppixels)	throw new std::exception("Could not load Image!");
+	m_loaded = true;
  }
 
 void ImageHolder::destroy() {
@@ -71,8 +67,7 @@ int ImageHolder::getChannels() {
 }
 
 int ImageHolder::getSize() {
-	;
-	__debugbreak();
+	
 	if (!m_loaded) throw new std::exception("Image not loaded yet!");
 
 	return m_width * m_height * m_channels;

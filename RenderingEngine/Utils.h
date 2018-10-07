@@ -1,9 +1,6 @@
 #pragma once
 
-#define GLFW_INCLUDE_VULKAN
-#include <GLFW\glfw3.h>
-#include <vector>
-#include <iostream>
+
 
 #define ASSERT_VK(val)\
 	if(val != VK_SUCCESS){\
