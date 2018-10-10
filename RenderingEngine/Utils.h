@@ -11,6 +11,12 @@
 
 uint32_t findMemoryTypeIndex(VkPhysicalDevice physDevice, uint32_t typeFilter, VkMemoryPropertyFlags memoryPropertyFlags);
 
+bool isFormatSupported(VkPhysicalDevice physDevice, VkFormat format, VkImageTiling imageTiling, VkFormatFeatureFlags formatFeatureFlags);
+
+VkFormat findSupportedFormat(VkPhysicalDevice physDevice, const std::vector<VkFormat> formats, VkImageTiling imageTiling, VkFormatFeatureFlags formatFeatureFlags);
+
+bool isStencilFormat(VkFormat format);
+
 void createBuffer(VkDevice device, VkPhysicalDevice physDevice, VkDeviceSize deviceSize, VkBufferUsageFlags bufferUsageFlags,
 	VkBuffer &buffer, VkMemoryPropertyFlags memoryPropertyFlags, VkDeviceMemory &deviceMemory);
 

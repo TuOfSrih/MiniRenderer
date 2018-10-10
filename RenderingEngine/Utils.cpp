@@ -15,6 +15,42 @@ uint32_t findMemoryTypeIndex(VkPhysicalDevice physDevice, uint32_t typeFilter, V
 	throw std::runtime_error("Found no correct memorytype");
 }
 
+bool isFormatSupported(VkPhysicalDevice physDevice, VkFormat format, VkImageTiling imageTiling, VkFormatFeatureFlags formatFeatureFlags) {
+
+	VkFormatProperties formatProperties;
+	vkGetPhysicalDeviceFormatProperties(physDevice, format, &formatProperties);
+
+	if (imageTiling == VK_IMAGE_TILING_LINEAR && formatProperties.linearTilingFeatures & formatFeatureFlags == formatFeatureFlags) {
+		
+		return true;
+	}
+	else if (imageTiling == VK_IMAGE_TILING_OPTIMAL && formatProperties.optimalTilingFeatures & formatFeatureFlags == formatFeatureFlags) {
+
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+VkFormat findSupportedFormat(VkPhysicalDevice physDevice, const std::vector<VkFormat> formats, VkImageTiling imageTiling, VkFormatFeatureFlags formatFeatureFlags) {
+
+	for (VkFormat format : formats) {
+
+		if (isFormatSupported(physDevice, format, imageTiling, formatFeatureFlags)) {
+
+			return format;
+		}
+	}
+
+	throw new std::exception("No supported format found!");
+}
+
+bool isStencilFormat(VkFormat format) {
+
+	return format == VK_FORMAT_D32_SFLOAT_S8_UINT || format == VK_FORMAT_D24_UNORM_S8_UINT;
+}
+
 void createBuffer(VkDevice device, VkPhysicalDevice physDevice, VkDeviceSize deviceSize, VkBufferUsageFlags bufferUsageFlags, VkBuffer &buffer, VkMemoryPropertyFlags memoryPropertyFlags, VkDeviceMemory &deviceMemory) {
 	VkBufferCreateInfo bufferCreateInfo;
 	bufferCreateInfo.sType = VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO;
@@ -174,7 +210,19 @@ void changeImageLayout(VkDevice device, VkCommandPool commandPool, VkQueue queue
 	imageMemoryBarrier.srcQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;
 	imageMemoryBarrier.dstQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;
 	imageMemoryBarrier.image = image;
-	imageMemoryBarrier.subresourceRange.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
+	if (newImageLayout == VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL) {
+
+		imageMemoryBarrier.subresourceRange.aspectMask = VK_IMAGE_ASPECT_DEPTH_BIT;
+
+		if (isStencilFormat(format)) {
+
+			imageMemoryBarrier.subresourceRange.aspectMask |= VK_IMAGE_ASPECT_STENCIL_BIT;
+		}
+	} else {
+
+		imageMemoryBarrier.subresourceRange.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
+	}
+	
 	imageMemoryBarrier.subresourceRange.baseMipLevel = 0;
 	imageMemoryBarrier.subresourceRange.levelCount = 1;
 	imageMemoryBarrier.subresourceRange.baseArrayLayer = 0;
@@ -185,14 +233,17 @@ void changeImageLayout(VkDevice device, VkCommandPool commandPool, VkQueue queue
 		imageMemoryBarrier.srcAccessMask = VK_ACCESS_HOST_WRITE_BIT;
 		imageMemoryBarrier.dstAccessMask = VK_ACCESS_TRANSFER_WRITE_BIT;
 
-	}
-	else if (oldImageLayout == VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL && newImageLayout == VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL) {
+	}	else if (oldImageLayout == VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL && newImageLayout == VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL) {
 
 		imageMemoryBarrier.srcAccessMask = VK_ACCESS_TRANSFER_WRITE_BIT;
 		imageMemoryBarrier.dstAccessMask = VK_ACCESS_SHADER_READ_BIT;
 
 	}
-	else {
+	else if (oldImageLayout == VK_IMAGE_LAYOUT_UNDEFINED && newImageLayout == VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL) {
+
+		imageMemoryBarrier.srcAccessMask = 0;
+		imageMemoryBarrier.dstAccessMask = VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT;
+	} else {
 		throw new std::exception("Layout transition failed!");
 	}
 
