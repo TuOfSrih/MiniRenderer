@@ -26,7 +26,7 @@ VkVertexInputBindingDescription Vertex::getVertexInputBindingDescription() {
 
 std::vector<VkVertexInputAttributeDescription> Vertex::getVertexInputAttributDescriptions() {
 	
-	std::vector<VkVertexInputAttributeDescription> vertexInputAttributDescriptions(3);
+	std::vector<VkVertexInputAttributeDescription> vertexInputAttributDescriptions(4);
 
 	vertexInputAttributDescriptions[0].location = 0;
 	vertexInputAttributDescriptions[0].binding = 0;
@@ -43,6 +43,11 @@ std::vector<VkVertexInputAttributeDescription> Vertex::getVertexInputAttributDes
 	vertexInputAttributDescriptions[2].format = VK_FORMAT_R32G32_SFLOAT;
 	vertexInputAttributDescriptions[2].offset = offsetof(Vertex, uv);
 
+	vertexInputAttributDescriptions[3].location = 3;
+	vertexInputAttributDescriptions[3].binding = 0;
+	vertexInputAttributDescriptions[3].format = VK_FORMAT_R32G32B32_SFLOAT;
+	vertexInputAttributDescriptions[3].offset = offsetof(Vertex, normals);
+
 	return vertexInputAttributDescriptions;
 }
 
@@ -50,6 +55,7 @@ bool Vertex::operator==(const Vertex& other) const {
 
 	return pos == other.pos &&
 		color == other.color &&
-		uv == other.uv;
+		uv == other.uv &&
+		normals ==  other.normals;
 }
 

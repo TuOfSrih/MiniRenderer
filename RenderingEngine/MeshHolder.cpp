@@ -39,7 +39,11 @@ void MeshHolder::create(const char* path) {
 			glm::vec2 uv = { 2 * vertexAttributes.texcoords[index.texcoord_index],		//TODO use uvs
 							2 * vertexAttributes.texcoords[index.texcoord_index + 1] };
 
-			Vertex vertex(pos, glm::vec3{ 0.0f, 1.0f, 0.0f }, glm::vec2{ 0.0f, 0.0f });
+			glm::vec3 normals = { vertexAttributes.normals[3 * index.normal_index],
+				vertexAttributes.normals[3 * index.normal_index + 2],
+				vertexAttributes.normals[3 * index.normal_index + 1] };
+
+			Vertex vertex(pos, glm::vec3{ 0.0f, 1.0f, 0.0f }, glm::vec2{ 0.0f, 0.0f }, normals);
 
 			m_vertices.push_back(vertex);
 			m_indices.push_back(m_indices.size());//TODO check
