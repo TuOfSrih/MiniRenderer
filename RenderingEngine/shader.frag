@@ -31,7 +31,9 @@ void main(){
 	vec3 specular = pow(max(dot(r, v), 0.0), 16.0) * vec3(1.0f);
 
 	outColor = vec4(ambient + diffuse + specular, 1.0);
+
 	//outColor = vec4(pushConstants.col, 1.0f);
+
 
 //	uvec4 cartoonColor = uvec4(outColor * vec4(4));
 //
