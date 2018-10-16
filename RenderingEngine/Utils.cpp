@@ -3,6 +3,10 @@
 #include "Utils.h"
 
 
+void notSupported(const char* msg) {
+	throw new std::exception(msg);
+}
+
 uint32_t findMemoryTypeIndex(VkPhysicalDevice physDevice, uint32_t typeFilter, VkMemoryPropertyFlags memoryPropertyFlags) {
 	VkPhysicalDeviceMemoryProperties physicalDeviceMemoryProperties;
 	vkGetPhysicalDeviceMemoryProperties(physDevice, &physicalDeviceMemoryProperties);//Check validity

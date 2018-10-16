@@ -1,13 +1,13 @@
 #pragma once
 
-
-
 #define ASSERT_VK(val)\
 	if(val != VK_SUCCESS){\
 		std::cerr << val;\
 		__debugbreak();\
 	}
 
+
+void notSupported(const char* msg);
 
 uint32_t findMemoryTypeIndex(VkPhysicalDevice physDevice, uint32_t typeFilter, VkMemoryPropertyFlags memoryPropertyFlags);
 
