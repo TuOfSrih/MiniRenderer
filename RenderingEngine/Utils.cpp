@@ -253,6 +253,6 @@ void changeImageLayout(VkDevice device, VkCommandPool commandPool, VkQueue queue
 
 
 	vkCmdPipelineBarrier(commandBuffer, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT, 0, 0, nullptr, 0, nullptr, 1, &imageMemoryBarrier);
-
+	
 	endOneTimeCommandBuffer(device, queue, commandPool, commandBuffer);
 }

@@ -5,8 +5,8 @@ EXEC : warning : shader.vert:3: '#extension' : extension not supported: GL_KHR_v
   Press any key to continue . . . 
   RenderingEngine.cpp
   Generating code
-  9 of 2650 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+  0 of 2742 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    10 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   RenderingEngine.vcxproj -> C:\Users\Flo\Documents\RenderingEngine\RenderingEngine\Release\RenderingEngine.exe
