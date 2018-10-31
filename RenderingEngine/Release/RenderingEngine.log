@@ -3,7 +3,15 @@ EXEC : warning : shader.vert:3: '#extension' : extension not supported: GL_KHR_v
   
   shader.frag
   Press any key to continue . . . 
+  stdafx.cpp
+  DepthImage.cpp
+  ImageHolder.cpp
+  MeshHolder.cpp
   RenderingEngine.cpp
+  Utils.cpp
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\utils.cpp(27): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+c:\users\flo\documents\renderingengine\renderingengine\renderingengine\utils.cpp(31): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+  Vertex.cpp
   Generating code
   0 of 2759 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
