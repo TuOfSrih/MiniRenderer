@@ -24,11 +24,11 @@ bool isFormatSupported(VkPhysicalDevice physDevice, VkFormat format, VkImageTili
 	VkFormatProperties formatProperties;
 	vkGetPhysicalDeviceFormatProperties(physDevice, format, &formatProperties);
 
-	if (imageTiling == VK_IMAGE_TILING_LINEAR && formatProperties.linearTilingFeatures & formatFeatureFlags == formatFeatureFlags) {
+	if (imageTiling == VK_IMAGE_TILING_LINEAR && ((formatProperties.linearTilingFeatures & formatFeatureFlags) == formatFeatureFlags)) {
 		
 		return true;
 	}
-	else if (imageTiling == VK_IMAGE_TILING_OPTIMAL && formatProperties.optimalTilingFeatures & formatFeatureFlags == formatFeatureFlags) {
+	else if (imageTiling == VK_IMAGE_TILING_OPTIMAL &&((formatProperties.optimalTilingFeatures & formatFeatureFlags) == formatFeatureFlags)) {
 
 		return true;
 	}
