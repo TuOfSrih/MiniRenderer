@@ -1,4 +1,3 @@
-
 #include "stdafx.h"
 
 #include "MeshHolder.h"
@@ -7,14 +6,10 @@
 #include "tiny_obj_loader.h"
 
 
-MeshHolder::MeshHolder()
-{
-}
+MeshHolder::MeshHolder() {}
 
 
-MeshHolder::~MeshHolder()
-{
-}
+MeshHolder::~MeshHolder() {}
 
 void MeshHolder::create(const char* path) {
 
@@ -24,12 +19,11 @@ void MeshHolder::create(const char* path) {
 	std::string errorMsg = "Error while parsing mesh!";
 
 	if (!tinyobj::LoadObj(&vertexAttributes, &shapes, &materials, &errorMsg, path)) {
+		
 		throw std::exception("Failed to parse mesh");
 	}
 
-
 	for (tinyobj::shape_t shape : shapes) {		//TODO check fourth component, general .obj files
-
 		for (tinyobj::index_t index : shape.mesh.indices) {
 
 			glm::vec3 pos = {vertexAttributes.vertices[3 * index.vertex_index ],
@@ -37,7 +31,7 @@ void MeshHolder::create(const char* path) {
 							 vertexAttributes.vertices[3 * index.vertex_index + 1]};
 
 			glm::vec2 uv = { 2 * vertexAttributes.texcoords[index.texcoord_index],		//TODO use uvs
-							2 * vertexAttributes.texcoords[index.texcoord_index + 1] };
+							 2 * vertexAttributes.texcoords[index.texcoord_index + 1] };
 
 			glm::vec3 normals = { vertexAttributes.normals[3 * index.normal_index],
 				vertexAttributes.normals[3 * index.normal_index + 2],
