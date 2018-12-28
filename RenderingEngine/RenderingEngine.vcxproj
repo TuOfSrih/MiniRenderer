@@ -133,6 +133,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Users\Flo\Documents\RenderingEngine\RenderingEngine\RenderingEngine\header;C:\GLFW\glfw-3.2.1.bin.WIN32\include;C:\glm\glm;C:\VulkanSDK\1.1.73.0\Include</AdditionalIncludeDirectories>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -171,6 +172,8 @@
     <ClInclude Include="DepthImage.h" />
     <ClInclude Include="ImageHolder.h" />
     <ClInclude Include="MeshHolder.h" />
+    <ClInclude Include="Resources.h" />
+    <ClInclude Include="Settings.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Utils.h" />
@@ -181,6 +184,8 @@
     <ClCompile Include="ImageHolder.cpp" />
     <ClCompile Include="MeshHolder.cpp" />
     <ClCompile Include="RenderingEngine.cpp" />
+    <ClCompile Include="Resources.cpp" />
+    <ClCompile Include="Settings.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
