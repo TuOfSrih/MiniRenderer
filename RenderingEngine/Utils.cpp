@@ -2,16 +2,20 @@
 
 #include "Utils.h"
 
-
 void notSupported(const char* msg) {
+	
 	throw new std::exception(msg);
 }
 
 uint32_t findMemoryTypeIndex(VkPhysicalDevice physDevice, uint32_t typeFilter, VkMemoryPropertyFlags memoryPropertyFlags) {
+	
 	VkPhysicalDeviceMemoryProperties physicalDeviceMemoryProperties;
 	vkGetPhysicalDeviceMemoryProperties(physDevice, &physicalDeviceMemoryProperties);//Check validity
+	
 	for (uint32_t i = 0; i < physicalDeviceMemoryProperties.memoryTypeCount; i++) {
+		
 		if ((typeFilter & (1 << i)) && ((physicalDeviceMemoryProperties.memoryTypes[i].propertyFlags & memoryPropertyFlags) == memoryPropertyFlags)) {//Research on memory types
+			
 			return i;
 		}
 	}
@@ -56,6 +60,7 @@ bool isStencilFormat(VkFormat format) {
 }
 
 void createBuffer(VkDevice device, VkPhysicalDevice physDevice, VkDeviceSize deviceSize, VkBufferUsageFlags bufferUsageFlags, VkBuffer &buffer, VkMemoryPropertyFlags memoryPropertyFlags, VkDeviceMemory &deviceMemory) {
+	
 	VkBufferCreateInfo bufferCreateInfo;
 	bufferCreateInfo.sType = VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO;
 	bufferCreateInfo.pNext = nullptr;
@@ -98,6 +103,7 @@ void copyBuffer(VkDevice device, VkCommandPool commandPool, VkQueue queue, VkBuf
 }
 
 VkCommandBuffer startOneTimeCommandBuffer(VkDevice device, VkCommandPool commandPool) {
+	
 	VkCommandBufferAllocateInfo commandBufferAllocateInfo;
 	commandBufferAllocateInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO;
 	commandBufferAllocateInfo.pNext = nullptr;
@@ -120,6 +126,7 @@ VkCommandBuffer startOneTimeCommandBuffer(VkDevice device, VkCommandPool command
 }
 
 void endOneTimeCommandBuffer(VkDevice device, VkQueue queue, VkCommandPool commandPool, VkCommandBuffer commandBuffer) {
+	
 	ASSERT_VK(vkEndCommandBuffer(commandBuffer));
 
 	VkSubmitInfo submitInfo;
@@ -137,7 +144,7 @@ void endOneTimeCommandBuffer(VkDevice device, VkQueue queue, VkCommandPool comma
 
 	vkQueueWaitIdle(queue);
 
-	//optimisation with fences
+	//optimization with fences
 
 	vkFreeCommandBuffers(device, commandPool, 1, &commandBuffer);
 }
@@ -178,7 +185,6 @@ void createImage(VkDevice device, VkPhysicalDevice physDevice, uint32_t width, u
 	ASSERT_VK(vkAllocateMemory(device, &memoryAllocateInfo, nullptr, &imageMemory));
 
 	vkBindImageMemory(device, image, imageMemory, 0);
-
 }
 
 void createImageView(VkDevice device, VkImage image, VkFormat format, VkImageAspectFlags imageAspectFlags, VkImageView &imageView) {
@@ -204,6 +210,7 @@ void createImageView(VkDevice device, VkImage image, VkFormat format, VkImageAsp
 }
 
 void changeImageLayout(VkDevice device, VkCommandPool commandPool, VkQueue queue, VkImage image, VkFormat format, VkImageLayout oldImageLayout, VkImageLayout newImageLayout) {
+	
 	VkCommandBuffer commandBuffer = startOneTimeCommandBuffer(device, commandPool);
 
 	VkImageMemoryBarrier imageMemoryBarrier;
@@ -236,21 +243,19 @@ void changeImageLayout(VkDevice device, VkCommandPool commandPool, VkQueue queue
 
 		imageMemoryBarrier.srcAccessMask = VK_ACCESS_HOST_WRITE_BIT;
 		imageMemoryBarrier.dstAccessMask = VK_ACCESS_TRANSFER_WRITE_BIT;
-
 	}	else if (oldImageLayout == VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL && newImageLayout == VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL) {
 
 		imageMemoryBarrier.srcAccessMask = VK_ACCESS_TRANSFER_WRITE_BIT;
 		imageMemoryBarrier.dstAccessMask = VK_ACCESS_SHADER_READ_BIT;
-
 	}
 	else if (oldImageLayout == VK_IMAGE_LAYOUT_UNDEFINED && newImageLayout == VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL) {
 
 		imageMemoryBarrier.srcAccessMask = 0;
 		imageMemoryBarrier.dstAccessMask = VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT;
 	} else {
+		
 		throw new std::exception("Layout transition failed!");
 	}
-
 
 	vkCmdPipelineBarrier(commandBuffer, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT, 0, 0, nullptr, 0, nullptr, 1, &imageMemoryBarrier);
 	

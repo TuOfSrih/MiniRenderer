@@ -1,11 +1,8 @@
 #include "stdafx.h"
+
 #include "DepthImage.h"
 
-
-DepthImage::DepthImage(){
-
-}
-
+DepthImage::DepthImage() {}
 
 DepthImage::~DepthImage(){
 
@@ -20,6 +17,7 @@ void DepthImage::create(VkDevice device, VkPhysicalDevice physDevice, VkCommandP
 	mDevice = device;
 
 	VkFormat depthFormat = findDepthFormat(physDevice);
+	
 	createImage(device, physDevice, width, height, depthFormat, VK_IMAGE_TILING_OPTIMAL, VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, mImage, mImageMemory);
 	createImageView(device, mImage, depthFormat, VK_IMAGE_ASPECT_DEPTH_BIT, mImageView);
 	changeImageLayout(device, commandPool, queue, mImage, depthFormat, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL);

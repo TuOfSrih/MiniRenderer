@@ -35,6 +35,7 @@ void changeImageLayout(VkDevice device, VkCommandPool commandPool, VkQueue queue
 
 template<typename T>
 void createAndUploadBuffer(VkDevice device, VkPhysicalDevice physDevice, VkQueue queue, VkCommandPool commandPool,
+	
 	std::vector<T> data, VkBufferUsageFlags bufferUsageFlags, VkBuffer &buffer, VkDeviceMemory deviceMemory) {
 	VkDeviceSize bufferSize = sizeof(T) *data.size();
 
@@ -48,8 +49,6 @@ void createAndUploadBuffer(VkDevice device, VkPhysicalDevice physDevice, VkQueue
 	vkUnmapMemory(device, stagingBufferMemory);
 
 	createBuffer(device, physDevice, bufferSize, bufferUsageFlags | VK_BUFFER_USAGE_TRANSFER_DST_BIT, buffer, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, deviceMemory);
-
-	//copy
 	copyBuffer(device, commandPool, queue, stagingBuffer, buffer, bufferSize);
 
 	vkDestroyBuffer(device, stagingBuffer, nullptr);
