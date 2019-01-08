@@ -14,11 +14,17 @@ private:
 	VkBuffer m_vertexBuffer;
 	VkDeviceMemory m_vertexBufferMemory;
 
+	void create(const char* path);
+
 public:
-	MeshHolder();
+	MeshHolder(const std::string& path);
+	MeshHolder(const MeshHolder&) = delete;
+	MeshHolder(MeshHolder&&) = default;
+	MeshHolder& operator=(const MeshHolder&) = delete;
+	MeshHolder& operator=(MeshHolder&&) = default;
 	~MeshHolder();
 
-	void create(const char* path);
+	
 
 	std::vector<Vertex> getVertices();
 	std::vector<uint32_t> getIndices();

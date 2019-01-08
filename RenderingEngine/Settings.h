@@ -18,8 +18,15 @@ private:
 
 public:
 
+	static Settings active;
+
 	Settings();
-	~Settings();
+	//~Settings();
+	Settings(const Settings& other) = delete;
+	Settings(Settings&& other) = default;
+	Settings& operator=(const Settings& other) = delete;
+	Settings& operator=(Settings&& other) = default;
+
 
 	std::string& getShaderDir();
 };

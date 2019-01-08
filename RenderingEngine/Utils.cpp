@@ -2,6 +2,7 @@
 
 #include "Utils.h"
 
+
 void notSupported(const char* msg) {
 	
 	throw new std::exception(msg);
@@ -260,4 +261,23 @@ void changeImageLayout(VkDevice device, VkCommandPool commandPool, VkQueue queue
 	vkCmdPipelineBarrier(commandBuffer, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT, 0, 0, nullptr, 0, nullptr, 1, &imageMemoryBarrier);
 	
 	endOneTimeCommandBuffer(device, queue, commandPool, commandBuffer);
+}
+
+std::vector<char> readBytesFromFile(const std::string &filename) {
+
+	std::ifstream file(filename, std::ios::binary | std::ios::ate);
+
+	if (!file) {
+
+		std::cerr << "Could not open shader!" << std::endl;
+		throw std::runtime_error("Could not open shaderfile!");
+	}
+
+	size_t size = (size_t)file.tellg();
+	std::vector<char> fileBuffer(size);
+	file.seekg(0);
+	file.read(fileBuffer.data(), size);
+	file.close();
+
+	return fileBuffer;
 }

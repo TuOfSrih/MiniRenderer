@@ -6,7 +6,10 @@
 #include "tiny_obj_loader.h"
 
 
-MeshHolder::MeshHolder() {}
+MeshHolder::MeshHolder(const std::string& path) {
+
+	create(path.c_str());
+}
 
 
 MeshHolder::~MeshHolder() {}
@@ -18,6 +21,7 @@ void MeshHolder::create(const char* path) {
 	std::vector<tinyobj::material_t> materials;
 	std::string errorMsg = "Error while parsing mesh!";
 
+	//Actually loading the mesh attributes
 	if (!tinyobj::LoadObj(&vertexAttributes, &shapes, &materials, &errorMsg, path)) {
 		
 		throw std::exception("Failed to parse mesh");

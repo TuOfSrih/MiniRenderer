@@ -13,13 +13,11 @@
 	 
 	 loadImage(path);
 	 this->m_loaded = true;
-	 //std::cout << "Constructor"<< std::endl;
 }
 
  ImageHolder::ImageHolder() {
 	 
 	 this->m_loaded = false;
-	 //std::cout << "DefaultConstructor"<< std::endl;
  }
 
 

@@ -1,7 +1,0 @@
-﻿  shader.vert
-EXEC : warning : shader.vert:3: '#extension' : extension not supported: GL_KHR_vulkan_glsl
-  
-  shader.frag
-  Press any key to continue . . . 
-  RenderingEngine.cpp
-  RenderingEngine.vcxproj -> C:\Users\Flo\Documents\RenderingEngine\RenderingEngine\Debug\RenderingEngine.exe

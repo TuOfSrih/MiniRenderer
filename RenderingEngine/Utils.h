@@ -1,5 +1,7 @@
 #pragma once
 
+#include <fstream>
+
 #define ASSERT_VK(val)\
 	if(val != VK_SUCCESS){\
 		std::cerr << val;\
@@ -32,6 +34,8 @@ void createImage(VkDevice device, VkPhysicalDevice physDevice, uint32_t width, u
 void createImageView(VkDevice device, VkImage image, VkFormat format, VkImageAspectFlags imageAspectFlags, VkImageView &imageView);
 
 void changeImageLayout(VkDevice device, VkCommandPool commandPool, VkQueue queue, VkImage image, VkFormat format, VkImageLayout oldImageLayout, VkImageLayout newImageLayout);
+
+std::vector<char> readBytesFromFile(const std::string &filename);
 
 template<typename T>
 void createAndUploadBuffer(VkDevice device, VkPhysicalDevice physDevice, VkQueue queue, VkCommandPool commandPool,

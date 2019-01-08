@@ -9,6 +9,7 @@ namespace fs = std::filesystem;
 
 Resources::Resources(std::string path){
 
+	//Create path to shader directory
 	fs::path curPath = fs::current_path() / path;
 	std::regex shaderRegEx(".*\\.(?:vert|frag|tesc|tese|geom|comp)");
 
@@ -18,10 +19,10 @@ Resources::Resources(std::string path){
 
 			continue;
 		}
-		std::string name = entry.path().filename().string();
+		std::string shaderName = entry.path().filename().string();
 
 		//Is Shader
-		if (!std::regex_match(name, shaderRegEx)) {
+		if (!std::regex_match(shaderName, shaderRegEx)) {
 			throw std::exception("Non shader loaded as shader");
 		}
 

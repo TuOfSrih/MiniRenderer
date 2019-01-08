@@ -12,17 +12,13 @@ enum StringValue {
 	UNDEFINED
 };
 
-constexpr StringValue toValue(const char s[]) {
-
-	strcmp(s, "ShaderDirectory") != 0 ? SHADER_DIR:
-		UNDEFINED;
-}
 
 Settings::Settings()
 {
 	Fixed fixedSettings;
 	std::ifstream inStream("Config/Settings.cfg");
 
+	//Parsing config file line by line
 	std::string curLine;
 	while (std::getline(inStream, curLine)) {
 
@@ -35,6 +31,7 @@ Settings::Settings()
 			continue;
 		}
 
+		//read option into respective value
 		std::string option, value;
 		lineStream >> option >> value;
 		//TODO Check no more arguments
@@ -42,7 +39,7 @@ Settings::Settings()
 		//TODO Solution that scales better
 		if (option == "ShaderDir") {
 
-			fixed.shaderDir = value;
+			fixed.shaderDir = std::move(value);
 			continue;
 		}
 
@@ -50,10 +47,6 @@ Settings::Settings()
 
 }
 
-
-Settings::~Settings()
-{
-}
 
 std::string& Settings::getShaderDir() {
 
