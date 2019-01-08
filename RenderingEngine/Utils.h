@@ -37,6 +37,10 @@ void changeImageLayout(VkDevice device, VkCommandPool commandPool, VkQueue queue
 
 std::vector<char> readBytesFromFile(const std::string &filename);
 
+void createShaderModule(const std::vector<char> &code, VkShaderModule* shaderModule);
+
+void loadShader(const std::string& filename, VkShaderModule* shaderModule);
+
 template<typename T>
 void createAndUploadBuffer(VkDevice device, VkPhysicalDevice physDevice, VkQueue queue, VkCommandPool commandPool,
 	

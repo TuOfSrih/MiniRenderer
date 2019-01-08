@@ -7,14 +7,25 @@
 #include <unordered_map>
 #include <string.h>
 
+Settings* Settings::active;
+
 enum StringValue {
 	SHADER_DIR,
 	UNDEFINED
 };
 
+void Settings::init() {
 
-Settings::Settings()
-{
+	Settings::active = new Settings();
+}
+
+void Settings::destroy() {
+
+	delete Settings::active;
+}
+
+Settings::Settings(){
+
 	Fixed fixedSettings;
 	std::ifstream inStream("Config/Settings.cfg");
 
@@ -50,5 +61,18 @@ Settings::Settings()
 
 std::string& Settings::getShaderDir() {
 
-	return fixed.shaderDir;
+	return active->fixed.shaderDir;
 }
+
+VkDevice& Settings::getDevice() {
+
+	return active->flex.renderingDevice;
+}
+
+VkPhysicalDevice& Settings::getPhysDevice() {
+
+	return active->flex.physDevice;
+}
+
+
+

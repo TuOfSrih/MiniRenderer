@@ -1,6 +1,7 @@
 #include "stdafx.h"
 
 #include "Utils.h"
+#include "Settings.h"
 
 
 void notSupported(const char* msg) {
@@ -263,7 +264,7 @@ void changeImageLayout(VkDevice device, VkCommandPool commandPool, VkQueue queue
 	endOneTimeCommandBuffer(device, queue, commandPool, commandBuffer);
 }
 
-std::vector<char> readBytesFromFile(const std::string &filename) {
+std::vector<char> readBytesFromFile(const std::string& filename) {
 
 	std::ifstream file(filename, std::ios::binary | std::ios::ate);
 
@@ -280,4 +281,22 @@ std::vector<char> readBytesFromFile(const std::string &filename) {
 	file.close();
 
 	return fileBuffer;
+}
+
+void createShaderModule(const std::vector<char> &code, VkShaderModule* shaderModule) {
+
+	VkShaderModuleCreateInfo shaderModuleCreateInfo;
+	shaderModuleCreateInfo.sType = VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO;
+	shaderModuleCreateInfo.pNext = nullptr;
+	shaderModuleCreateInfo.flags = 0;
+	shaderModuleCreateInfo.codeSize = code.size();
+	shaderModuleCreateInfo.pCode = (uint32_t*)code.data();
+
+	ASSERT_VK(vkCreateShaderModule(Settings::getDevice(), &shaderModuleCreateInfo, nullptr, shaderModule));
+}
+
+void loadShader(const std::string& filename, VkShaderModule* shaderModule) {
+
+	std::vector<char> code = readBytesFromFile(filename);
+	createShaderModule(code, shaderModule);
 }

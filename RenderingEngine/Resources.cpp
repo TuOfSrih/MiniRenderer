@@ -1,17 +1,52 @@
 #include "stdafx.h"
 #include "Resources.h"
+#include "Settings.h"
+#include "Utils.h"
 
 #include <filesystem>
 #include <regex>
 
 namespace fs = std::filesystem;
 
+Resources* Resources::active;
 
-Resources::Resources(std::string path){
+
+void Resources::init() {
+
+	active = new Resources();
+}
+
+void Resources::destroy() {
+
+	delete Resources::active;
+}
+
+Resources::Resources(){
+
+}
+
+
+VkShaderModule Resources::getShader(std::string name) {
+	
+	return active->shadersModules[name];
+}
+
+MeshHolder* Resources::getMesh(std::string name) {
+
+	return active->meshes[name];
+}
+
+ImageHolder* Resources::getTexture(std::string name) {
+
+	return active->textures[name];
+}
+
+void Resources::loadAllShaders() {
 
 	//Create path to shader directory
-	fs::path curPath = fs::current_path() / path;
-	std::regex shaderRegEx(".*\\.(?:vert|frag|tesc|tese|geom|comp)");
+	fs::path curPath = fs::current_path() / Settings::getShaderDir();
+	std::regex shaderRegEx("(.*)\\.spv");
+
 
 	for (auto& entry : fs::directory_iterator(curPath)) {
 
@@ -23,32 +58,14 @@ Resources::Resources(std::string path){
 
 		//Is Shader
 		if (!std::regex_match(shaderName, shaderRegEx)) {
-			throw std::exception("Non shader loaded as shader");
+			
+			continue;
 		}
 
-		//readFile(path);
-		//VkShaderModule shaderModule;
-		//createShaderModule();
-		//shadersModules.emplace(name, shaderModule);
+		//Load the Shader
+		VkShaderModule module;
+		loadShader(entry.path().filename().string(), &module);
+		active->shadersModules.emplace(shaderName, module);
 	}
-}
 
-
-Resources::~Resources()
-{
-}
-
-VkShaderModule Resources::getShader(std::string name) {
-
-	return shadersModules[name];
-}
-
-MeshHolder* Resources::getMesh(std::string name) {
-
-	return meshes[name];
-}
-
-ImageHolder* Resources::getTexture(std::string name) {
-
-	return textures[name];
 }

@@ -7,27 +7,36 @@ struct Fixed {
 
 struct Flexible {
 
+	VkDevice			renderingDevice;
+	VkPhysicalDevice	physDevice;
 };
 
 class Settings {
 
 private:
 
-	Fixed fixed;
-	Flexible flex;
+	Fixed		fixed;
+	Flexible	flex;
+
+	static Settings* active;
 
 public:
 
-	static Settings active;
+	static void init();
+	static void destroy();
+	
 
 	Settings();
-	//~Settings();
-	Settings(const Settings& other) = delete;
-	Settings(Settings&& other) = default;
-	Settings& operator=(const Settings& other) = delete;
-	Settings& operator=(Settings&& other) = default;
+	~Settings()									= default;
+	Settings(const Settings& other)				= delete;
+	Settings(Settings&& other)					= default;
+	Settings& operator=(const Settings& other)	= delete;
+	Settings& operator=(Settings&& other)		= default;
 
 
-	std::string& getShaderDir();
+	static std::string&			getShaderDir();
+	static VkDevice&			getDevice();
+	static VkPhysicalDevice&	getPhysDevice();
+
 };
 
