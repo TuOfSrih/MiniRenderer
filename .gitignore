@@ -345,3 +345,5 @@ healthchecksdb
 *.tlog
 
 *.ipch
+
+*.idb

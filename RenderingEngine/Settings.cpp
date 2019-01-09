@@ -64,15 +64,63 @@ std::string& Settings::getShaderDir() {
 	return active->fixed.shaderDir;
 }
 
+VkInstance& Settings::getInstance() {
+
+	return active->fixed.instance;
+}
+
 VkDevice& Settings::getDevice() {
 
-	return active->flex.renderingDevice;
+	return active->fixed.renderingDevice;
 }
 
 VkPhysicalDevice& Settings::getPhysDevice() {
 
-	return active->flex.physDevice;
+	return active->fixed.physDevice;
 }
 
+VkSurfaceKHR& Settings::getSurface() {
 
+	return active->fixed.surface;
+}
+
+VkPresentModeKHR& Settings::getPresentMode() {
+
+	return active->fixed.presentMode;
+}
+
+uint32_t& Settings::getGraphicsFamilyIndex() {
+
+	return active->fixed.graphicsFamilyIndex;
+}
+
+uint32_t& Settings::getPresentFamilyIndex() {
+
+	return active->fixed.presentFamilyIndex;
+}
+
+uint32_t& Settings::getTransferFamilyIndex() {
+
+	return active->fixed.transferFamilyIndex;
+}
+
+uint8_t& Settings::getMaxFramesInFlight() {
+
+	return active->fixed.MAX_FRAMES_IN_FLIGHT;
+}
+
+VkSwapchainKHR& Settings::getSwapchain() {
+
+	return active->flex.swapchain;
+}
+
+uint32_t& Settings::getScreenWidth() {
+
+	return active->flex.screenWidth;
+}
+
+uint32_t& Settings::getScreenHeight() {
+
+	return active->flex.screenHeight;
+}
 
