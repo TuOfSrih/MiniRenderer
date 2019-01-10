@@ -64,6 +64,21 @@ std::string& Settings::getShaderDir() {
 	return active->fixed.shaderDir;
 }
 
+const std::vector<const char*>& Settings::getValidationLayers() {
+
+	return active->fixed.enabledValidationLayers;
+}
+
+std::vector<const char*>& Settings::getInstanceExtensions() {
+
+	return active->fixed.instanceExtensions;
+}
+
+const std::vector<const char*>&	Settings::getDeviceExtensions() {
+
+	return active->fixed.deviceExtensions;
+}
+
 VkInstance& Settings::getInstance() {
 
 	return active->fixed.instance;
@@ -79,6 +94,21 @@ VkPhysicalDevice& Settings::getPhysDevice() {
 	return active->fixed.physDevice;
 }
 
+VkQueue& Settings::getGraphicsQueue() {
+
+	return Settings::active->fixed.graphicsQueue;
+}
+
+VkQueue& Settings::getPresentQueue() {
+
+	return Settings::active->fixed.presentQueue;
+}
+
+VkQueue& Settings::getTransferQueue() {
+
+	return Settings::active->fixed.transferQueue;
+}
+
 VkSurfaceKHR& Settings::getSurface() {
 
 	return active->fixed.surface;
@@ -87,6 +117,21 @@ VkSurfaceKHR& Settings::getSurface() {
 VkPresentModeKHR& Settings::getPresentMode() {
 
 	return active->fixed.presentMode;
+}
+
+VkSurfaceFormatKHR&	Settings::getSurfaceFormat() {
+
+	return active->fixed.surfaceFormat;
+}
+
+VkExtent2D& Settings::getSwapchainExtent() {
+
+	return active->fixed.swapchainExtent;
+}
+
+uint32_t& Settings::getAmountImagesInSwapchain() {
+
+	return active->fixed.amountImagesInSwapchain;
 }
 
 uint32_t& Settings::getGraphicsFamilyIndex() {
@@ -107,6 +152,16 @@ uint32_t& Settings::getTransferFamilyIndex() {
 uint8_t& Settings::getMaxFramesInFlight() {
 
 	return active->fixed.MAX_FRAMES_IN_FLIGHT;
+}
+
+VkCommandPool& Settings::getCommandPool() {
+
+	return active->fixed.commandPool;
+}
+
+VkDescriptorPool& Settings::getDescriptorPool() {
+
+	return active->fixed.descriptorPool;
 }
 
 VkSwapchainKHR& Settings::getSwapchain() {
