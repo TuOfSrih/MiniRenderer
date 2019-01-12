@@ -114,6 +114,25 @@ VkSurfaceKHR& Settings::getSurface() {
 	return active->fixed.surface;
 }
 
+GLFWwindow*& Settings::getWindow() {
+
+	return active->fixed.window;
+}
+
+std::vector<VkSemaphore>& Settings::getAvailableSemaphores() {
+
+	return active->fixed.imageAvailableSemaphores;
+}
+
+std::vector<VkSemaphore>& Settings::getFinishedSemaphores() {
+
+	return active->fixed.renderFinishedSemaphores;
+}
+std::vector<VkFence>& Settings::inFlightFences() {
+
+	return active->fixed.inFlightFences;
+}
+
 VkPresentModeKHR& Settings::getPresentMode() {
 
 	return active->fixed.presentMode;
@@ -167,6 +186,21 @@ VkDescriptorPool& Settings::getDescriptorPool() {
 VkSwapchainKHR& Settings::getSwapchain() {
 
 	return active->flex.swapchain;
+}
+
+std::vector<VkFramebuffer>& Settings::getFramebuffers() {
+
+	return active->flex.framebuffers;
+}
+
+DepthImage*& Settings::getDepthImage() {
+
+	return active->flex.depthImage;
+}
+
+size_t&	Settings::currentFrame() {
+
+	return active->flex.currentFrame;
 }
 
 uint32_t& Settings::getScreenWidth() {

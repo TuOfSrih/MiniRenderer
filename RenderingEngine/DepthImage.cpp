@@ -18,9 +18,9 @@ void DepthImage::create(VkDevice device, VkPhysicalDevice physDevice, VkCommandP
 
 	VkFormat depthFormat = findDepthFormat(physDevice);
 	
-	createImage(device, physDevice, width, height, depthFormat, VK_IMAGE_TILING_OPTIMAL, VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, mImage, mImageMemory);
-	createImageView(device, mImage, depthFormat, VK_IMAGE_ASPECT_DEPTH_BIT, mImageView);
-	changeImageLayout(device, commandPool, queue, mImage, depthFormat, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL);
+	createImage( width, height, depthFormat, VK_IMAGE_TILING_OPTIMAL, VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, mImage, mImageMemory);
+	mImageView = createImageView( mImage, depthFormat, VK_IMAGE_ASPECT_DEPTH_BIT);
+	changeImageLayout( queue, mImage, depthFormat, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL);
 
 	mCreated = true;
 }
@@ -46,7 +46,7 @@ VkFormat DepthImage::findDepthFormat(VkPhysicalDevice physDevice) {
 
 	std::vector<VkFormat> possibleFormats = { VK_FORMAT_D32_SFLOAT_S8_UINT, VK_FORMAT_D24_UNORM_S8_UINT, VK_FORMAT_D32_SFLOAT};
 
-	return findSupportedFormat(physDevice, possibleFormats, VK_IMAGE_TILING_OPTIMAL, VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT);
+	return findSupportedFormat( possibleFormats, VK_IMAGE_TILING_OPTIMAL, VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT);
 }
 
 VkAttachmentDescription DepthImage::getDepthAttachmentDescription(VkPhysicalDevice physDevice) {

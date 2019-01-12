@@ -1,12 +1,14 @@
 #pragma once
 
+#include "DepthImage.h";
+
 struct Fixed {
 
 	//General settings
 	std::string shaderDir;
 
 	const std::vector<const char*>	enabledValidationLayers = {
-	"VK_LAYER_LUNARG_standard_validation",
+		"VK_LAYER_LUNARG_standard_validation",
 	};
 	std::vector<const char*>		instanceExtensions = {
 		VK_EXT_DEBUG_UTILS_EXTENSION_NAME,
@@ -24,6 +26,10 @@ struct Fixed {
 	VkQueue							presentQueue;
 	VkQueue							transferQueue;
 	VkSurfaceKHR					surface;
+	GLFWwindow						*window;
+	std::vector<VkSemaphore>		imageAvailableSemaphores;
+	std::vector<VkSemaphore>		renderFinishedSemaphores;
+	std::vector<VkFence>			inFlightFences;
 
 	VkPresentModeKHR				presentMode;
 	VkSurfaceFormatKHR				surfaceFormat;
@@ -46,10 +52,15 @@ struct Fixed {
 struct Flexible {
 
 	//Graphics settings
-	VkSwapchainKHR		swapchain		= VK_NULL_HANDLE;
+	VkSwapchainKHR				swapchain		= VK_NULL_HANDLE;
+	std::vector<VkFramebuffer>	framebuffers;
+	DepthImage*					depthImage;
+	size_t						currentFrame	= 0;
 
-	uint32_t			screenWidth;
-	uint32_t			screenHeight;
+
+
+	uint32_t				screenWidth;
+	uint32_t				screenHeight;
 	
 };
 
@@ -88,6 +99,10 @@ public:
 	static VkQueue&							getPresentQueue();
 	static VkQueue&							getTransferQueue();
 	static VkSurfaceKHR&					getSurface();
+	static GLFWwindow*&						getWindow();
+	static std::vector<VkSemaphore>&		getAvailableSemaphores();
+	static std::vector<VkSemaphore>&		getFinishedSemaphores();
+	static std::vector<VkFence>&			inFlightFences();
 
 	static VkPresentModeKHR&				getPresentMode();
 	static VkSurfaceFormatKHR&				getSurfaceFormat();
@@ -104,6 +119,9 @@ public:
 
 
 	static VkSwapchainKHR&					getSwapchain();
+	static std::vector<VkFramebuffer>&		getFramebuffers();
+	static DepthImage*&						getDepthImage();
+	static size_t&							currentFrame();
 	static uint32_t&						getScreenWidth();
 	static uint32_t&						getScreenHeight();
 };
