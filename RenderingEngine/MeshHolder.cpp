@@ -43,18 +43,18 @@ void MeshHolder::create(const char* path) {
 
 			Vertex vertex(pos, glm::vec3{ 0.0f, 1.0f, 0.0f }, glm::vec2{ 0.0f, 0.0f }, normals);
 
-			m_vertices.push_back(vertex);
-			m_indices.push_back(m_indices.size());//TODO check
+			vertices.push_back(vertex);
+			indices.push_back(indices.size());//TODO check
 		}
 	}
 }
 
 std::vector<Vertex> MeshHolder::getVertices() {		//TODO avoid copymess
 
-	return m_vertices;
+	return vertices;
 }
 
 std::vector<uint32_t> MeshHolder::getIndices() {
 
-	return m_indices;
+	return indices;
 }

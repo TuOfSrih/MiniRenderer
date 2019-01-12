@@ -9,10 +9,10 @@ class ImageHolder {
 
 private:
 
-	int m_width;
-	int m_height;
-	int m_channels;
-	stbi_uc *m_ppixels;
+	int width;
+	int height;
+	int amountChannels;
+	stbi_uc *pixels;
 
 	bool m_loaded = false;	//TODO not necessary
 	bool m_uploaded = false;
@@ -32,10 +32,10 @@ public:
 	explicit ImageHolder(const char* path);
 	explicit ImageHolder();
 	~ImageHolder();
-	ImageHolder(const ImageHolder &) = delete;
-	ImageHolder(ImageHolder &&) = delete;
+	ImageHolder(const ImageHolder &)			= delete;
+	ImageHolder(ImageHolder &&)					= delete;
 	ImageHolder& operator=(const ImageHolder &) = delete;
-	ImageHolder& operator=(ImageHolder &&) = delete;
+	ImageHolder& operator=(ImageHolder &&)		= delete;
 
 	void loadImage(const char* path);
 	void destroy();

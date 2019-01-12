@@ -32,9 +32,9 @@ void ImageHolder::loadImage(const char* path) {
 
 	if (m_loaded) throw new std::exception("Image already loaded!");
 	
-	m_ppixels = stbi_load(path, &m_width, &m_height, &m_channels, STBI_rgb_alpha);
+	pixels = stbi_load(path, &width, &height, &amountChannels, STBI_rgb_alpha);
 	
-	if (!m_ppixels)	throw new std::exception("Could not load Image!");
+	if (!pixels)	throw new std::exception("Could not load Image!");
 	m_loaded = true;
  }
 
@@ -42,7 +42,7 @@ void ImageHolder::destroy() {
 	
 	if (m_loaded) {
 		
-		stbi_image_free(m_ppixels);
+		stbi_image_free(pixels);
 		m_loaded = false;
 	}
 
@@ -124,7 +124,7 @@ void ImageHolder::writeBufferToImage(VkDevice device, VkCommandPool commandPool,
 	bufferImageCopy.imageSubresource.baseArrayLayer = 0;
 	bufferImageCopy.imageSubresource.layerCount = 1;
 	bufferImageCopy.imageOffset = { 0, 0, 0 };
-	bufferImageCopy.imageExtent = { (uint32_t)m_width, (uint32_t)m_height, 1};
+	bufferImageCopy.imageExtent = { (uint32_t)width, (uint32_t)height, 1};
 
 	vkCmdCopyBufferToImage(commandBuffer, buffer, m_image, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, 1, &bufferImageCopy);
 	
@@ -143,14 +143,14 @@ int ImageHolder::getWidth() {
 
 	if(!m_loaded) throw new std::exception("Image not loaded yet!");
 
-	return m_width;
+	return width;
 }
 
 int ImageHolder::getHeight() {
 
 	if (!m_loaded) throw new std::exception("Image not loaded yet!");
 
-	return m_height;
+	return height;
 }
 
 int ImageHolder::getChannels() {
@@ -164,14 +164,14 @@ int ImageHolder::getSize() {
 	
 	if (!m_loaded) throw new std::exception("Image not loaded yet!");
 
-	return m_width * m_height * getChannels();//TODO avoid confusion with channels
+	return width * height * getChannels();//TODO avoid confusion with channels
 }
 
 stbi_uc *ImageHolder::getRaw() {
 	
 	if (!m_loaded) throw new std::exception("Image not loaded yet!");
 
-	return m_ppixels;
+	return pixels;
 }
 
 VkSampler ImageHolder::getSampler() {

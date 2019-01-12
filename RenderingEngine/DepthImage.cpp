@@ -1,59 +1,39 @@
 #include "stdafx.h"
 
 #include "DepthImage.h"
+#include "Settings.h"
 
-DepthImage::DepthImage() {}
+//TODO Find out if possible without queue
+DepthImage::DepthImage(const VkQueue queue) {
+
+	VkFormat depthFormat = findDepthFormat();
+
+	createImage(Settings::getSwapchainExtent().width, Settings::getSwapchainExtent().height, depthFormat, VK_IMAGE_TILING_OPTIMAL, VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, image, imageMemory);
+	imageView = createImageView(image, depthFormat, VK_IMAGE_ASPECT_DEPTH_BIT);
+	changeImageLayout(queue, image, depthFormat, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL);
+
+}
 
 DepthImage::~DepthImage(){
 
-	destroy();
+	vkDestroyImageView(Settings::getDevice(), imageView, nullptr);
+	vkDestroyImage(Settings::getDevice(), image, nullptr);
+
+	vkFreeMemory(Settings::getDevice(), imageMemory, nullptr);
 }
 
-
-void DepthImage::create(VkDevice device, VkPhysicalDevice physDevice, VkCommandPool commandPool, VkQueue queue, uint32_t width, uint32_t height) {
-
-	if (mCreated) throw new std::exception("Depth Image was already created!");
-
-	mDevice = device;
-
-	VkFormat depthFormat = findDepthFormat(physDevice);
-	
-	createImage( width, height, depthFormat, VK_IMAGE_TILING_OPTIMAL, VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, mImage, mImageMemory);
-	mImageView = createImageView( mImage, depthFormat, VK_IMAGE_ASPECT_DEPTH_BIT);
-	changeImageLayout( queue, mImage, depthFormat, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL);
-
-	mCreated = true;
-}
-
-void DepthImage::destroy() {
-
-	if (mCreated) {
-
-		vkDestroyImageView(mDevice, mImageView, nullptr);
-		vkDestroyImage(mDevice, mImage, nullptr);
-		
-		vkFreeMemory(mDevice, mImageMemory, nullptr);
-		mCreated = false;
-
-		mImage = VK_NULL_HANDLE;		//TODO improve
-		mImageView = VK_NULL_HANDLE;
-		mImageMemory = VK_NULL_HANDLE,
-		mDevice = VK_NULL_HANDLE;
-	}
-}
-
-VkFormat DepthImage::findDepthFormat(VkPhysicalDevice physDevice) {
+VkFormat DepthImage::findDepthFormat() {
 
 	std::vector<VkFormat> possibleFormats = { VK_FORMAT_D32_SFLOAT_S8_UINT, VK_FORMAT_D24_UNORM_S8_UINT, VK_FORMAT_D32_SFLOAT};
 
 	return findSupportedFormat( possibleFormats, VK_IMAGE_TILING_OPTIMAL, VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT);
 }
 
-VkAttachmentDescription DepthImage::getDepthAttachmentDescription(VkPhysicalDevice physDevice) {
+VkAttachmentDescription DepthImage::getDepthAttachmentDescription() {
 
 	VkAttachmentDescription attachmentDescription;
 	attachmentDescription.flags = 0;
-	attachmentDescription.format = findDepthFormat(physDevice);
+	attachmentDescription.format = findDepthFormat();
 	attachmentDescription.samples = VK_SAMPLE_COUNT_1_BIT;
 	attachmentDescription.loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR;
 	attachmentDescription.storeOp = VK_ATTACHMENT_STORE_OP_DONT_CARE;
@@ -84,7 +64,3 @@ VkPipelineDepthStencilStateCreateInfo DepthImage::getPipelineDepthStencilStateCr
 	return depthStencilStateCreateInfo;
 }
 
-VkImageView DepthImage::getImageView() {
-
-	return mImageView;
-}

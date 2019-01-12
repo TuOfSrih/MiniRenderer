@@ -9,27 +9,25 @@ class DepthImage {
 
 private:
 
-	VkImage			mImage			= VK_NULL_HANDLE ;		//unnecessary
-	VkDeviceMemory	mImageMemory;
-	VkImageView		mImageView		= VK_NULL_HANDLE;
-	VkDevice		mDevice			= VK_NULL_HANDLE;
-	bool			mCreated		= false;
+	VkImage			image						= VK_NULL_HANDLE ;		//unnecessary
+	VkDeviceMemory	imageMemory;
+	
+
+	static VkFormat findDepthFormat();
 
 public:
 
-	DepthImage();
+	VkImageView		imageView					= VK_NULL_HANDLE;
+
+	DepthImage(const VkQueue queue);
 	~DepthImage();
-	DepthImage(const DepthImage&) = delete;
-	DepthImage(DepthImage&&) = delete;
-	DepthImage& operator= (const DepthImage&) = delete;
-	DepthImage& operator= (DepthImage&&) = delete;
+	DepthImage(const DepthImage&)				= delete;
+	DepthImage(DepthImage&&)					= delete;
+	DepthImage& operator= (const DepthImage&)	= delete;
+	DepthImage& operator= (DepthImage&&)		= delete;
 
-	void create(VkDevice device, VkPhysicalDevice physDevice, VkCommandPool commandPool, VkQueue queue, uint32_t width, uint32_t height);
-	void destroy();
-
-	static VkFormat findDepthFormat(VkPhysicalDevice physDevice);
-	static VkAttachmentDescription getDepthAttachmentDescription(VkPhysicalDevice physDevice);
-	static VkPipelineDepthStencilStateCreateInfo getPipelineDepthStencilStateCreateInfoOpaque();
-	VkImageView getImageView();
+	
+	static VkAttachmentDescription					getDepthAttachmentDescription();
+	static VkPipelineDepthStencilStateCreateInfo	getPipelineDepthStencilStateCreateInfoOpaque();
 };
 

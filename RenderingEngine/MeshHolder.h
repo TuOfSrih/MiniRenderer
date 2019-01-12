@@ -7,25 +7,23 @@
 class MeshHolder {
 
 private:
-	std::vector<Vertex> m_vertices;
-	std::vector<uint32_t> m_indices;
+	std::vector<Vertex>		vertices;
+	std::vector<uint32_t>	indices;
 
-	VkBuffer m_vertexBuffer;
-	VkDeviceMemory m_vertexBufferMemory;
+	VkBuffer				vertexBuffer;
+	VkDeviceMemory			vertexMemory;
 
 	void create(const char* path);
 
 public:
 	MeshHolder(const std::string& path);
-	MeshHolder(const MeshHolder&) = delete;
-	MeshHolder(MeshHolder&&) = default;
-	MeshHolder& operator=(const MeshHolder&) = delete;
-	MeshHolder& operator=(MeshHolder&&) = default;
+	MeshHolder(const MeshHolder&)				= delete;
+	MeshHolder(MeshHolder&&)					= default;
+	MeshHolder& operator=(const MeshHolder&)	= delete;
+	MeshHolder& operator=(MeshHolder&&)			= default;
 	~MeshHolder();
 
-	
-
-	std::vector<Vertex> getVertices();
-	std::vector<uint32_t> getIndices();
+	std::vector<Vertex>		getVertices();
+	std::vector<uint32_t>	getIndices();
 };
 
