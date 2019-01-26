@@ -6,20 +6,14 @@
 #include "Utils.h"
 #define STB_IMAGE_IMPLEMENTATION
 #include "ImageHolder.h"
+#include "Settings.h"
 
 
 
  ImageHolder::ImageHolder(const char* path){
 	 
 	 loadImage(path);
-	 this->m_loaded = true;
 }
-
- ImageHolder::ImageHolder() {
-	 
-	 this->m_loaded = false;
- }
-
 
 ImageHolder::~ImageHolder(){
 	
@@ -27,43 +21,32 @@ ImageHolder::~ImageHolder(){
 }
 
 
-
 void ImageHolder::loadImage(const char* path) {
-
-	if (m_loaded) throw new std::exception("Image already loaded!");
 	
 	pixels = stbi_load(path, &width, &height, &amountChannels, STBI_rgb_alpha);
 	
-	if (!pixels)	throw new std::exception("Could not load Image!");
-	m_loaded = true;
+	if (!pixels) throw new std::exception("Could not load Image!");
  }
 
 void ImageHolder::destroy() {
-	
-	if (m_loaded) {
-		
-		stbi_image_free(pixels);
-		m_loaded = false;
-	}
 
-	if (m_uploaded) {
+	if (onGPU) {
 
-		vkDestroySampler(m_device, m_sampler, nullptr);
-		vkDestroyImageView(m_device, m_imageView, nullptr);
-		vkDestroyImage(m_device, m_image, nullptr);
-		vkFreeMemory(m_device, m_imageMemory, nullptr);
+		vkDestroySampler(Settings::getDevice(), sampler, nullptr);
+		vkDestroyImageView(Settings::getDevice(), imageView, nullptr);
+		vkDestroyImage(Settings::getDevice(), image, nullptr);
+		vkFreeMemory(Settings::getDevice(), imageMemory, nullptr);
 
-		m_uploaded = false;
 	}
 }
 
-void ImageHolder::upload(const VkDevice & device, VkPhysicalDevice physDevice, VkCommandPool commandPool, VkQueue queue){
+void ImageHolder::transferToGPU(VkQueue queue){
 	
-	if (!m_loaded || m_uploaded) {
-		throw new std::exception("Image was not loaded or already uploaded");
+	if (onGPU) {
+		
+		throw new std::exception("Image already on the GPU!");
 	}
 
-	this->m_device = device;
 	VkDeviceSize imageSize = getSize();
 
 	VkBuffer stagingBuffer;
@@ -72,20 +55,20 @@ void ImageHolder::upload(const VkDevice & device, VkPhysicalDevice physDevice, V
 	createBuffer( imageSize, VK_BUFFER_USAGE_TRANSFER_SRC_BIT, stagingBuffer, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, stagingBufferMemory);
 
 	void* data;
-	vkMapMemory(device, stagingBufferMemory, 0, imageSize, 0, &data);
+	vkMapMemory(Settings::getDevice(), stagingBufferMemory, 0, imageSize, 0, &data);
 	memcpy(data, getRaw(), static_cast<size_t>(imageSize));
-	vkUnmapMemory(device, stagingBufferMemory);
+	vkUnmapMemory(Settings::getDevice(), stagingBufferMemory);
 
-	createImage( getWidth(), getHeight(), VK_FORMAT_R8G8B8A8_UNORM, VK_IMAGE_TILING_OPTIMAL, VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_SAMPLED_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, m_image, m_imageMemory);
+	createImage( getWidth(), getHeight(), VK_FORMAT_R8G8B8A8_UNORM, VK_IMAGE_TILING_OPTIMAL, VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_SAMPLED_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, image, imageMemory);
 	
-	changeLayout(device, commandPool, queue, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
-	writeBufferToImage(device, commandPool, queue, stagingBuffer);
-	changeLayout(device, commandPool, queue, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
+	changeLayout(queue, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
+	writeBufferToImage( queue, stagingBuffer);
+	changeLayout(queue, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
 
-	vkDestroyBuffer(device, stagingBuffer, nullptr);
-	vkFreeMemory(device, stagingBufferMemory, nullptr);
+	vkDestroyBuffer(Settings::getDevice(), stagingBuffer, nullptr);
+	vkFreeMemory(Settings::getDevice(), stagingBufferMemory, nullptr);
 
-	m_imageView = createImageView( m_image, VK_FORMAT_R8G8B8A8_UNORM, VK_IMAGE_ASPECT_COLOR_BIT);
+	imageView = createImageView( image, VK_FORMAT_R8G8B8A8_UNORM, VK_IMAGE_ASPECT_COLOR_BIT);
 
 	VkSamplerCreateInfo samplerCreateInfo;
 	samplerCreateInfo.sType = VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO;
@@ -107,12 +90,13 @@ void ImageHolder::upload(const VkDevice & device, VkPhysicalDevice physDevice, V
 	samplerCreateInfo.borderColor = VK_BORDER_COLOR_INT_OPAQUE_BLACK;
 	samplerCreateInfo.unnormalizedCoordinates = VK_FALSE;
 
-	ASSERT_VK(vkCreateSampler(device, &samplerCreateInfo, nullptr, &m_sampler));
+	ASSERT_VK(vkCreateSampler(Settings::getDevice(), &samplerCreateInfo, nullptr, &sampler));
 
-	m_uploaded = true;
+	onGPU = true;
 }
 
-void ImageHolder::writeBufferToImage(VkDevice device, VkCommandPool commandPool, VkQueue queue, VkBuffer buffer) {
+void ImageHolder::writeBufferToImage(VkQueue queue, VkBuffer buffer) {
+	
 	VkCommandBuffer commandBuffer = startOneTimeCommandBuffer();
 
 	VkBufferImageCopy bufferImageCopy;
@@ -126,65 +110,51 @@ void ImageHolder::writeBufferToImage(VkDevice device, VkCommandPool commandPool,
 	bufferImageCopy.imageOffset = { 0, 0, 0 };
 	bufferImageCopy.imageExtent = { (uint32_t)width, (uint32_t)height, 1};
 
-	vkCmdCopyBufferToImage(commandBuffer, buffer, m_image, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, 1, &bufferImageCopy);
+	vkCmdCopyBufferToImage(commandBuffer, buffer, image, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, 1, &bufferImageCopy);
 	
-	endOneTimeCommandBuffer( queue, commandPool, commandBuffer);
+	endOneTimeCommandBuffer(queue, Settings::getCommandPool(), commandBuffer);
 
 }
 
-void ImageHolder::changeLayout(VkDevice device, VkCommandPool commandPool, VkQueue queue, VkImageLayout imageLayout) {
+void ImageHolder::changeLayout(VkQueue queue, VkImageLayout dstImageLayout) {
 	
-	changeImageLayout( queue, m_image, VK_FORMAT_R8G8B8A8_UNORM, this->m_imageLayout, imageLayout);
+	changeImageLayout( queue, image, VK_FORMAT_R8G8B8A8_UNORM, imageLayout, dstImageLayout);
 
-	this->m_imageLayout = imageLayout;
+	imageLayout = dstImageLayout;
 }
 
 int ImageHolder::getWidth() {
-
-	if(!m_loaded) throw new std::exception("Image not loaded yet!");
 
 	return width;
 }
 
 int ImageHolder::getHeight() {
 
-	if (!m_loaded) throw new std::exception("Image not loaded yet!");
-
 	return height;
 }
 
 int ImageHolder::getChannels() {
-	
-	if (!m_loaded) throw new std::exception("Image not loaded yet!");
 
-	return 4;
+	return amountChannels;
 }
 
 int ImageHolder::getSize() {
-	
-	if (!m_loaded) throw new std::exception("Image not loaded yet!");
 
-	return width * height * getChannels();//TODO avoid confusion with channels
+	return width * height * getChannels();
 }
 
 stbi_uc *ImageHolder::getRaw() {
-	
-	if (!m_loaded) throw new std::exception("Image not loaded yet!");
 
 	return pixels;
 }
 
 VkSampler ImageHolder::getSampler() {
-	
-	if (!m_loaded) throw new std::exception("Image not loaded yet!");
 
-	return m_sampler;
+	return sampler;
 }
 
 VkImageView ImageHolder::getImageView() {
 
-	if (!m_loaded) throw new std::exception("Image not loaded yet!");
-
-	return m_imageView;
+	return imageView;
 
 }
