@@ -7,6 +7,8 @@
 #include <unordered_map>
 #include <string.h>
 
+#include "DepthImage.h";
+
 Settings* Settings::active;
 
 enum StringValue {

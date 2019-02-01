@@ -3,6 +3,8 @@
 #include "DepthImage.h"
 #include "Settings.h"
 
+#include "Utils.h"
+
 //TODO Find out if possible without queue
 DepthImage::DepthImage(const VkQueue queue) {
 

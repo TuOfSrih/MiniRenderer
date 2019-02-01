@@ -10,8 +10,8 @@ private:
 	std::vector<Vertex>		vertices;
 	std::vector<uint32_t>	indices;
 
-	VkBuffer				vertexBuffer;
-	VkDeviceMemory			vertexMemory;
+	//VkBuffer				vertexBuffer;
+	//VkDeviceMemory			vertexMemory;
 
 	void create(const char* path);
 

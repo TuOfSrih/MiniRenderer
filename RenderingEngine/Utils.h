@@ -8,6 +8,13 @@
 		__debugbreak();\
 	}
 
+struct Buffer {
+
+	VkBuffer buffer;
+	VkDeviceMemory memory;
+	std::size_t size;
+};
+
 
 void notSupported(const char* msg);
 
