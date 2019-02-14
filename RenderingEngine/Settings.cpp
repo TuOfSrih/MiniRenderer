@@ -121,15 +121,15 @@ GLFWwindow*& Settings::getWindow() {
 	return active->fixed.window;
 }
 
-std::vector<VkSemaphore>& Settings::getAvailableSemaphores() {
-
-	return active->fixed.imageAvailableSemaphores;
-}
-
-std::vector<VkSemaphore>& Settings::getFinishedSemaphores() {
-
-	return active->fixed.renderFinishedSemaphores;
-}
+//std::vector<VkSemaphore>& Settings::getAvailableSemaphores() {
+//
+//	return active->fixed.imageAvailableSemaphores;
+//}
+//
+//std::vector<VkSemaphore>& Settings::getFinishedSemaphores() {
+//
+//	return active->fixed.renderFinishedSemaphores;
+//}
 std::vector<VkFence>& Settings::inFlightFences() {
 
 	return active->fixed.inFlightFences;

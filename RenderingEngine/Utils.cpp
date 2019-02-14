@@ -245,25 +245,38 @@ void changeImageLayout(const VkQueue queue, const VkImage image, const VkFormat 
 	imageMemoryBarrier.subresourceRange.baseArrayLayer = 0;
 	imageMemoryBarrier.subresourceRange.layerCount = 1;
 
+	VkPipelineStageFlagBits sourceStage;
+	VkPipelineStageFlagBits destStage;
+
 	if (oldImageLayout == VK_IMAGE_LAYOUT_PREINITIALIZED && newImageLayout == VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL) {
 
-		imageMemoryBarrier.srcAccessMask = VK_ACCESS_HOST_WRITE_BIT;
+		imageMemoryBarrier.srcAccessMask = 0;
 		imageMemoryBarrier.dstAccessMask = VK_ACCESS_TRANSFER_WRITE_BIT;
+
+		sourceStage = VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT;
+		destStage = VK_PIPELINE_STAGE_TRANSFER_BIT;
+
 	}	else if (oldImageLayout == VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL && newImageLayout == VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL) {
 
 		imageMemoryBarrier.srcAccessMask = VK_ACCESS_TRANSFER_WRITE_BIT;
 		imageMemoryBarrier.dstAccessMask = VK_ACCESS_SHADER_READ_BIT;
+
+		sourceStage = VK_PIPELINE_STAGE_TRANSFER_BIT;
+		destStage = VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT;
 	}
 	else if (oldImageLayout == VK_IMAGE_LAYOUT_UNDEFINED && newImageLayout == VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL) {
 
 		imageMemoryBarrier.srcAccessMask = 0;
 		imageMemoryBarrier.dstAccessMask = VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT;
+
+		sourceStage = VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT;
+		destStage = VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT;
 	} else {
 		
 		throw new std::exception("Layout transition failed!");
 	}
 
-	vkCmdPipelineBarrier(commandBuffer, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT, 0, 0, nullptr, 0, nullptr, 1, &imageMemoryBarrier);
+	vkCmdPipelineBarrier(commandBuffer, sourceStage, destStage, 0, 0, nullptr, 0, nullptr, 1, &imageMemoryBarrier);
 	
 	endOneTimeCommandBuffer( queue, Settings::getCommandPool(), commandBuffer);
 }

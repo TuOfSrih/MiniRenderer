@@ -100,8 +100,8 @@ public:
 	static VkQueue&							getTransferQueue();
 	static VkSurfaceKHR&					getSurface();
 	static GLFWwindow*&						getWindow();
-	static std::vector<VkSemaphore>&		getAvailableSemaphores();
-	static std::vector<VkSemaphore>&		getFinishedSemaphores();
+	//static std::vector<VkSemaphore>&		getAvailableSemaphores();
+	//static std::vector<VkSemaphore>&		getFinishedSemaphores();
 	static std::vector<VkFence>&			inFlightFences();
 
 	static VkPresentModeKHR&				getPresentMode();
