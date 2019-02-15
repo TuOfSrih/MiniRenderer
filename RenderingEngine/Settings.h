@@ -102,7 +102,7 @@ public:
 	static GLFWwindow*&						getWindow();
 	//static std::vector<VkSemaphore>&		getAvailableSemaphores();
 	//static std::vector<VkSemaphore>&		getFinishedSemaphores();
-	static std::vector<VkFence>&			inFlightFences();
+	//static std::vector<VkFence>&			inFlightFences();
 
 	static VkPresentModeKHR&				getPresentMode();
 	static VkSurfaceFormatKHR&				getSurfaceFormat();

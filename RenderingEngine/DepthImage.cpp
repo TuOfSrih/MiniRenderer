@@ -49,7 +49,7 @@ VkAttachmentDescription DepthImage::getDepthAttachmentDescription() {
 
 VkPipelineDepthStencilStateCreateInfo DepthImage::getPipelineDepthStencilStateCreateInfoOpaque() {
 
-	VkPipelineDepthStencilStateCreateInfo depthStencilStateCreateInfo;	//Optimize	
+	VkPipelineDepthStencilStateCreateInfo depthStencilStateCreateInfo;	//TODO Optimize	
 	depthStencilStateCreateInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO;
 	depthStencilStateCreateInfo.pNext = nullptr;
 	depthStencilStateCreateInfo.flags = 0;

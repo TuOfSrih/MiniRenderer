@@ -23,7 +23,7 @@ public:
 	MeshHolder& operator=(MeshHolder&&)			= default;
 	~MeshHolder();
 
-	std::vector<Vertex>		getVertices();
-	std::vector<uint32_t>	getIndices();
+	std::vector<Vertex>&		getVertices();
+	std::vector<uint32_t>&	getIndices();
 };
 

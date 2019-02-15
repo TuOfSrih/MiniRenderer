@@ -130,10 +130,10 @@ GLFWwindow*& Settings::getWindow() {
 //
 //	return active->fixed.renderFinishedSemaphores;
 //}
-std::vector<VkFence>& Settings::inFlightFences() {
-
-	return active->fixed.inFlightFences;
-}
+//std::vector<VkFence>& Settings::inFlightFences() {
+//
+//	return active->fixed.inFlightFences;
+//}
 
 VkPresentModeKHR& Settings::getPresentMode() {
 

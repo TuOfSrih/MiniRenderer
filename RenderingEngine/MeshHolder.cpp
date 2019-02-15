@@ -49,12 +49,12 @@ void MeshHolder::create(const char* path) {
 	}
 }
 
-std::vector<Vertex> MeshHolder::getVertices() {		//TODO avoid copymess
+std::vector<Vertex>& MeshHolder::getVertices() {		//TODO avoid copymess
 
 	return vertices;
 }
 
-std::vector<uint32_t> MeshHolder::getIndices() {
+std::vector<uint32_t>& MeshHolder::getIndices() {
 
 	return indices;
 }
