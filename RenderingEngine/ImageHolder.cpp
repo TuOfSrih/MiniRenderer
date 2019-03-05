@@ -133,9 +133,10 @@ int ImageHolder::getHeight() {
 	return height;
 }
 
+//Do not change this function to return amountChannels, there are always 4 channels being used
 int ImageHolder::getChannels() {
 
-	return amountChannels;
+	return 4;// amountChannels;
 }
 
 int ImageHolder::getSize() {
