@@ -51,7 +51,7 @@ void loadShader(const std::string& filename, VkShaderModule*const shaderModule);
 
 //TODO investigate if queue can be left out
 template<typename T>
-void createAndUploadBuffer(const std::vector<T>& data, const VkBufferUsageFlags bufferUsageFlags, VkBuffer &buffer, VkDeviceMemory deviceMemory) {
+void createAndUploadBuffer(const std::vector<T>& data, const VkBufferUsageFlags bufferUsageFlags, VkBuffer& buffer, VkDeviceMemory& deviceMemory) {
 	
 	const VkDeviceSize bufferSize = sizeof(T) *data.size();
 

@@ -19,6 +19,7 @@ private:
 public:
 
 	static void init();
+	static void releaseTextures();
 	static void destroy();
 	
 

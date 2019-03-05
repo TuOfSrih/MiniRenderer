@@ -21,6 +21,11 @@ void Resources::destroy() {
 	delete Resources::active;
 }
 
+void Resources::releaseTextures() {
+	
+	Resources::active->textures.clear();
+}
+
 Resources::Resources(){
 
 }
