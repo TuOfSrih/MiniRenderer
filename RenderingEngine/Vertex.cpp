@@ -55,7 +55,6 @@ bool Vertex::operator==(const Vertex& other) const {
 
 	return pos == other.pos &&
 		color == other.color &&
-		uv == other.uv &&
-		normals ==  other.normals;
+		uv == other.uv;
 }
 

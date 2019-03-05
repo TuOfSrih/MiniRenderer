@@ -24,6 +24,6 @@ public:
 	~MeshHolder();
 
 	std::vector<Vertex>&		getVertices();
-	std::vector<uint32_t>&	getIndices();
+	std::vector<uint32_t>&		getIndices();
 };
 

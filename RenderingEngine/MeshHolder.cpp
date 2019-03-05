@@ -2,8 +2,10 @@
 
 #include "MeshHolder.h"
 
+#include <unordered_map>
 #define TINYOBJLOADER_IMPLEMENTATION
 #include "tiny_obj_loader.h"
+
 
 
 MeshHolder::MeshHolder(const std::string& path) {
@@ -27,8 +29,10 @@ void MeshHolder::create(const char* path) {
 		throw std::exception("Failed to parse mesh");
 	}
 
-	for (tinyobj::shape_t shape : shapes) {		//TODO check fourth component, general .obj files
-		for (tinyobj::index_t index : shape.mesh.indices) {
+	std::unordered_map<Vertex, uint32_t> unique_vertices;
+
+	for (const auto& shape : shapes) {		//TODO check fourth component, general .obj files
+		for (const auto& index : shape.mesh.indices) {
 
 			glm::vec3 pos = {vertexAttributes.vertices[3 * index.vertex_index ],
 							 vertexAttributes.vertices[3 * index.vertex_index + 2],
@@ -43,13 +47,19 @@ void MeshHolder::create(const char* path) {
 
 			Vertex vertex(pos, glm::vec3{ 0.0f, 1.0f, 0.0f }, glm::vec2{ 0.0f, 0.0f }, normals);
 
-			vertices.push_back(vertex);
-			indices.push_back(indices.size());//TODO check
+			if (unique_vertices.count(vertex) == 0) {
+
+				unique_vertices[vertex] = static_cast<uint32_t>(vertices.size());
+				vertices.push_back(vertex);
+			}
+			indices.push_back(unique_vertices[vertex]);		//TODO check
 		}
 	}
+	vertices.shrink_to_fit();
+	indices.shrink_to_fit();
 }
 
-std::vector<Vertex>& MeshHolder::getVertices() {		//TODO avoid copymess
+std::vector<Vertex>& MeshHolder::getVertices() {			//TODO avoid copymess
 
 	return vertices;
 }
